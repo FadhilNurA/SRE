@@ -7,19 +7,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{% block title %}MyCompetitionApp{% endblock %}</title>
 
     <!-- CSS (Bootstrap / Tailwind or Custom CSS) -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"> <!-- static link -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
     {% block extra_head %}{% endblock %}
 </head>
 
 <body class="bg-gray-100">
 
     <!-- Navbar Include -->
-    {% include 'navbar2.html' %}
+    {% include 'navbar.html' %}
 
     <!-- Main Content -->
     <main>

@@ -1,0 +1,171 @@
+/* Container Utama */
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Gambar Latar Belakang (Image 2) */
+.background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Pastikan gambar menutupi area */
+}
+
+
+/* Overlay Tengah (Image 4) */
+.centered-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(calc(1 / var(--zoom-scale, 1)));
+    width: 40vw; /* Ukuran terhadap lebar viewport, jadi konsisten */
+    height: auto;
+    z-index: 2;
+    object-fit: contain;
+}
+
+
+/* Animasi untuk Image 5 */
+.animated-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    width: 25%;
+    height: auto;
+    z-index: 3; /* Di atas semua layer */
+    animation: slideUp 1s ease-out forwards;
+}
+
+@keyframes slideUp {
+    0% { transform: translate(-50%, 200%); }
+    100% { transform: translate(-50%, 90%); }
+}
+
+.strong-gradient {
+    font-weight: bold; /* Menebalkan teks */
+    background-image: linear-gradient(to right, #1B6600, #94C700); /* Gradien dari #1B6600 ke #94C700 */
+    -webkit-background-clip: text; /* Menyertakan gradien di teks */
+    background-clip: text; /* Standard property for compatibility */
+    color: transparent; /* Membuat warna teks transparan untuk menunjukkan gradien */
+}
+
+.event-card {
+    flex: 0 0 calc(33.333% - 16px); /* 3 item per row dengan gap */
+    min-width: 0; /* Pastikan card tidak melebar */
+    background: white;
+    border: 6px solid #1F393B;
+    border-radius: 30px;
+    padding: 6px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box; /* Menjaga padding dan border tidak mempengaruhi ukuran */
+    margin-bottom: 20px; /* Menambah jarak antara card */
+    overflow: hidden; /* Pastikan card tidak keluar dari area */
+  }
+  
+  /* Efek Hover pada Event Card */
+  .event-card:hover {
+    transform: scale(1.05); /* Sedikit membesar tanpa keluar dari batas */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Styling gambar di dalam Event Card */
+  .event-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+  
+  .carousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px auto;
+    max-width: 1000px;
+    padding: 10px 60px; /* Biar ada ruang di kiri kanan */
+  }
+  
+  .carousel-viewport {
+    overflow: hidden;
+    width: 100%;
+  }
+  
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.5s ease;
+  }
+  
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    font-size: 28px;
+    background-color: #1F393B;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    opacity: 0.9;
+    transition: transform 0.3s ease;
+  }
+  
+  .carousel-btn:hover {
+    transform: translateY(-50%) scale(1.1);
+  }
+  
+  .prev-btn {
+    left: 0;
+  }
+  
+  .next-btn {
+    right: 0;
+  }
+  
+
+  @media (max-width: 768px) {
+    .prev-btn, .next-btn {
+      left: 10px !important;
+      right: 10px !important;
+      top: auto;
+      bottom: -60px;
+      transform: none;
+    }
+  
+    .carousel-btn {
+      width: 40px;
+      height: 40px;
+      font-size: 20px;
+    }
+  }
+  
+
+
+
+.white-bg {
+    background-color: white;
+}
+
+.center-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 48px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  .previous-events-wrapper {
+    width: 100%;
+    background: white; /* atau hijau kalau kamu pakai */
+    padding: 80px 0 60px 0; /* padding-top 80px, padding-bottom 60px */
+    box-sizing: border-box;
+  }
+    
+

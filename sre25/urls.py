@@ -19,7 +19,8 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('res.urls')), #ganti nanti jadi res/
+    path('', include('main.urls')), #ganti nanti jadi res/
+    path('res/', include('res.urls')), #ganti nanti jadi res/
     path('competition/', include('competition.urls')),
 
 ]
