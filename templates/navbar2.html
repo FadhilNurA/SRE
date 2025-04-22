@@ -1,0 +1,31 @@
+{% load static %}
+
+<nav class="bg-[#1F393B] shadow-lg top-0 left-0 z-50 w-full fixed">
+  <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <div class="flex items-center">
+        <a href="/" class="hover:opacity-80 size-[60px] select-none">
+          <img src="{% static 'image/1.png' %}" alt="Logo" class="object-contain">
+        </a>
+      </div>
+
+      <!-- Navigation Links -->
+      <div class="hidden md:flex space-x-6 text-white absolute left-1/2 transform -translate-x-1/2 font-semibold">
+        <a href="{% url 'res:res_home' %}" class="hover:text-gray-300">RES</a>
+        <a href="{% url 'compe:bcc' %}" class="hover:text-gray-300">BCC</a>
+        <a href="{% url 'compe:pcc' %}" class="hover:text-gray-300">PCC</a>
+        <a href="{% url 'compe:reic' %}" class="hover:text-gray-300">PEIC</a>
+      </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const btn = document.querySelector("button.mobile-menu-button");
+      const menu = document.querySelector(".mobile-menu");
+
+      btn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+      });
+    });
+  </script>
+</nav>
