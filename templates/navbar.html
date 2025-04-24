@@ -1,6 +1,6 @@
 {% load static %}
 
-<nav id="main-nav" class="bg-[#1B6600] shadow-lg fixed top-0 left-0 w-full z-50">
+<nav id="main-nav" class="bg-[#105D48] shadow-lg fixed top-0 left-0 w-full z-50">
     <div class="max-w-7xl mx-auto px-6">
         <div class="flex items-center justify-between h-24">
 
@@ -11,7 +11,7 @@
 
             <!-- Navigation Links -->
             <div class="hidden md:flex ml-auto space-x-8 font-semibold text-lg text-white">
-                <a href="{% url 'res:res_home' %}"
+                <a href="{% url 'res:home' %}"
                     class="hover:text-gray-300 relative {% if request.resolver_match.url_name == 'res_home' %}active-nav-link{% endif %}">
                     Home
                 </a>
@@ -68,6 +68,17 @@
             width: 100%;
         }
     }
+
+        .nav-hidden {
+        transform: translateY(-100%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .nav-visible {
+        transform: translateY(0);
+        transition: transform 0.3s ease-in-out;
+    }
+
 </style>
 
 <script>
@@ -79,10 +90,13 @@
             const current = window.pageYOffset;
             if (current <= 0) {
                 nav.classList.remove('nav-hidden');
+                nav.classList.add('nav-visible');
             } else if (current > lastScroll) {
+                nav.classList.remove('nav-visible');
                 nav.classList.add('nav-hidden');
             } else {
                 nav.classList.remove('nav-hidden');
+                nav.classList.add('nav-visible');
             }
             lastScroll = current;
         });
