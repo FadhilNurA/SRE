@@ -6,5 +6,5 @@ from . import views
 app_name = 'res'  # <-- ini WAJIB untuk namespace
 
 urlpatterns = [
-    path('', views.res_home, name='res_home'),
+    path('', views.res_home, name='home'),
 ]

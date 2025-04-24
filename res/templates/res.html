@@ -5,58 +5,411 @@
 
 {% block content %}
 <!-- Ganti #D9D9D9 dengan warna yang sesuai atau hapus jika tidak perlu -->
-<div style="width: 100%; min-height: 100vh; background: #1F393B; overflow-y: auto;">  <!-- Gunakan overflow-y: auto -->
-    <!-- Gambar di Bagian Atas -->
-    <div class="image-container">
-        <img src="{% static 'image/2.jpg' %}" class="background-image" alt="Background">
+<div style="width: 100%; min-height: 100vh; background: #1F393B; overflow-y: auto;">
+
+  <!-- Hero Section yang baru di paling atas -->
+  <style>
+    .hero-section {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 600px;
+      overflow: hidden;
+      border: 2px solid #0369a1;
+    }
+
+    .background-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    .green-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(47, 106, 88, 0.85);
+      z-index: 2;
+    }
+
+    .content {
+      position: relative;
+      z-index: 3;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .sre-watermark {
+      position: absolute;
+      right: -5%;
+      bottom: -15%;
+      font-size: 40rem;
+      font-weight: 900;
+      color: rgba(255, 255, 255, 0.08);
+      line-height: 0.8;
+      z-index: 2;
+      pointer-events: none;
+      font-family: Arial, sans-serif;
+    }
+
+    .highlight {
+      font-weight: 700;
+    }
+
+    /* Styles untuk Vision, Mission, Values Section */
+    .vision-mission-section {
+      background-color: white;
+      padding: 60px 20px;
+      font-family: 'Arial', sans-serif;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .vm-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      color: #2F6A58;
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 1.2rem;
+      font-style: italic;
+    }
+
+    .vision-text {
+      font-size: 1.25rem;
+      line-height: 1.6;
+      margin-bottom: 4rem;
+    }
+
+    .text-highlight {
+      color: #2F6A58;
+      font-weight: 600;
+    }
+
+    .mission-container {
+      display: flex;
+      gap: 30px;
+      margin-bottom: 4rem;
+    }
+
+    .mission-image {
+      flex: 0 0 320px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .mission-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .mission-content {
+      flex: 1;
+      background-color: white;
+      padding: 20px 30px;
+      border-radius: 10px;
+      border: 1px solid #eee;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .mission-item {
+      margin-bottom: 1.2rem;
+      font-size: 1.1rem;
+    }
+
+    .mission-number {
+      color: #2F6A58;
+      font-weight: bold;
+    }
+
+    .values-section {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .value-arrow {
+      background-color: #F9D949;
+      color: #333;
+      padding: 12px 40px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      position: relative;
+      clip-path: polygon(0% 0%, 85% 0%, 100% 50%, 85% 100%, 0% 100%, 15% 50%);
+      min-width: 180px;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .mission-container {
+        flex-direction: column;
+      }
+
+      .mission-image {
+        flex: 0 0 200px;
+      }
+
+      .values-section {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    /* Styles untuk CTA Section */
+    .cta-section {
+      background-color: white;
+      padding: 100px 20px;
+      font-family: 'Arial', sans-serif;
+    }
     
-        <!-- Frame / Layer Tengah (Image 3) -->
-        <!-- <img src="{% static 'image/3.png' %}" class="middle-frame" alt="Middle Frame"> -->
+    .cta-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
     
-        <!-- Overlay Tengah (Image 4) -->
-        <img src="{% static 'image/4.png' %}" class="centered-overlay" alt="Overlay">
+    .cta-heading {
+      font-size: 3rem;
+      font-weight: bold;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
     
-        <!-- Animated Element (Image 5) -->
-        <img src="{% static 'image/5.png' %}" class="animated-overlay" alt="Animated Overlay">
+    .gradient-text {
+      background: linear-gradient(90deg, #F97316 0%, #FACC15 50%, #84CC16 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    .cta-subheading {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 3rem;
+    }
+    
+    .cta-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .cta-option {
+      color: #2F6A58;
+      font-size: 1.25rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .cta-option:hover {
+      color: #F97316;
+      transform: translateY(-3px);
+    }
+    
+    @media (max-width: 768px) {
+      .cta-heading {
+        font-size: 2.5rem;
+      }
+      
+      .cta-options {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+  </style>
+
+  <section class="hero-section">
+    <!-- Background Image -->
+    <img src="{% static 'image/background_home.png' %}" alt="Wind Turbines" class="background-image">
+
+    <!-- Green Overlay -->
+    <div class="green-overlay"></div>
+
+    <!-- SRE Watermark -->
+    <div class="sre-watermark">SRE</div>
+
+    <!-- Content -->
+    <div class="content">
+      <div class="container mx-auto max-w-5xl px-6">
+        <h1 class="text-white text-4xl md:text-5xl lg:text-6xl font-bold mb-10">
+          Society of Renewable Energy<br>
+          Universitas Indonesia<br>
+          2024/25
+        </h1>
+
+        <div class="text-white text-lg md:text-xl lg:text-2xl max-w-3xl">
+          <p>
+            <span class="highlight">SRE UI</span> is a student chapter focused on <span class="highlight">nurturing
+              future renewable energy leaders through learning, projects, and collaboration</span> for UI students, in
+            alignment with all stakeholders.
+          </p>
+        </div>
+      </div>
     </div>
-    
-    <!-- White Box dengan Konten Panjang -->
-    <div style="width: 90%; max-width: 1833px; margin: 40px auto; background: white; box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25); border-radius: 64px; padding: 64px; box-sizing: border-box; margin-bottom: 100px;">  <!-- Tambah margin-bottom -->
-        <p style="color: black; font-size: 24px; font-family: 'Open Sans', sans-serif; font-weight: 400; text-align: justify; line-height: 1.6;">
-            ReEnergize Summit 2025 by SRE UI is <strong class="strong-gradient">the biggest annual event organized by SRE UI</strong>, invites the public to participate in an engaging lineup of activities centered on renewable energy. The events within ReEnergize Summit 2025 includes <strong class="strong-gradient"> Case Competition, Policy Case Competition, Renewable Energy Innovation Competition, Policy Workshop, Field Trip, and Pentahelix Talks</strong> all designed to facilitate the growth of knowledge within our local community. With support from renewable energy experts, SRE UI ReEnergize Summit <strong class="strong-gradient">to drive meaningful change in Indonesia’s energy transition by promoting energy diversification, community resilience, and sustainable careers in the green sector.</strong>
+  </section>
 
-            <!-- Contoh: Tambahkan lebih banyak paragraf atau elemen -->
-        </p>
+  <!-- Vision, Mission, Values Section (Ditambahkan sebagai section kedua) -->
+  <section class="vision-mission-section">
+    <div class="vm-container">
+      <!-- Vision Section -->
+      <h2 class="section-title">Our Vision</h2>
+      <p class="vision-text">
+        SRE UI as a sustainable organization with <span class="text-highlight">focus on renewable energy</span> that
+        <span class="text-highlight">nurtures member growth</span>, <span class="text-highlight">enables impactful
+          collaborations</span>, and <span class="text-highlight">advances positive influences for continuous
+          change</span>.
+      </p>
+
+      <!-- Mission Section -->
+      <h2 class="section-title">Our Mission</h2>
+      <div class="mission-container">
+        <div class="mission-image">
+          <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1744&q=80" alt="Solar Panels">
+        </div>
+
+        <div class="mission-content">
+          <div class="mission-item">
+            <p><span class="mission-number">1. Nurturing future leaders in renewable energy</span> in their personal and
+              professional development journey.</p>
+          </div>
+
+          <div class="mission-item">
+            <p><span class="mission-number">2. Aligning members purpose</span> to learn and engage in organizational
+              activities.</p>
+          </div>
+
+          <div class="mission-item">
+            <p><span class="mission-number">3. Empowering the youth to be aware and involved in renewable energy
+                development movement.</span></p>
+          </div>
+
+          <div class="mission-item">
+            <p><span class="mission-number">4. Promoting supportive and constructive environment</span> to drive
+              progress among communities and stakeholders.</p>
+          </div>
+
+          <div class="mission-item">
+            <p><span class="mission-number">5. Elevating positive impact through programs and collaborations</span> that
+              benefit both our members and the broader society.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Core Values Section -->
+      <div class="values-section">
+        <h2 class="section-title mr-8">Our Core Value</h2>
+        <div class="flex gap-4">
+          <div class="value-arrow">Engage</div>
+          <div class="value-arrow">Empower</div>
+          <div class="value-arrow">Elevate</div>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <!-- Previous Our Previous Event Section -->
-    <div class="previous-events-wrapper white-bg">
-        <h2 class="center-title"><strong class ="strong-gradient"> Previous Events</strong></h2>
-          
-          <div class="carousel-container">
-            <div class="carousel-viewport">
-              <div class="carousel-track" id="carousel-track">
-                <div class="event-card"><img src="{% static 'image/previous_event_1.jpg' %}" alt="Event 1"></div>
-                <div class="event-card"><img src="{% static 'image/previous_event_2.jpg' %}" alt="Event 2"></div>
-                <div class="event-card"><img src="{% static 'image/previous_event_3.jpg' %}" alt="Event 3"></div>
-                <div class="event-card"><img src="{% static 'image/previous_event_4.jpg' %}" alt="Event 4"></div>
-                <div class="event-card"><img src="{% static 'image/previous_event_5.jpg' %}" alt="Event 5"></div>
-                <div class="event-card"><img src="{% static 'image/previous_event_6.jpg' %}" alt="Event 6"></div>
-                <div class="event-card"><img src="{% static 'image/previous_event_7.jpg' %}" alt="Event 7"></div>
-                 </div>
-                 <button class="carousel-btn prev-btn" onclick="scrollCarousel(-1)">‹</button>
-                    <button class="carousel-btn next-btn" onclick="scrollCarousel(1)">›</button>
-            </div>
-          </div>  
+  <!-- Gambar di Bagian Atas -->
+  <div class="image-container">
+    <img src="{% static 'image/2.jpg' %}" class="background-image" alt="Background">
 
+    <!-- Frame / Layer Tengah (Image 3) -->
+    <!-- <img src="{% static 'image/3.png' %}" class="middle-frame" alt="Middle Frame"> -->
+
+    <!-- Overlay Tengah (Image 4) -->
+    <img src="{% static 'image/4.png' %}" class="centered-overlay" alt="Overlay">
+
+    <!-- Animated Element (Image 5) -->
+    <img src="{% static 'image/5.png' %}" class="animated-overlay" alt="Animated Overlay">
+  </div>
+
+  <!-- White Box dengan Konten Panjang -->
+  <div
+    style="width: 90%; max-width: 1833px; margin: 40px auto; background: white; box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25); border-radius: 64px; padding: 64px; box-sizing: border-box; margin-bottom: 50px;">
+    <!-- Tambah margin-bottom -->
+    <p
+      style="color: black; font-size: 24px; font-family: 'Open Sans', sans-serif; font-weight: 400; text-align: justify; line-height: 1.6;">
+      ReEnergize Summit 2025 by SRE UI is <strong class="strong-gradient">the biggest annual event organized by SRE
+        UI</strong>, invites the public to participate in an engaging lineup of activities centered on renewable energy.
+      The events within ReEnergize Summit 2025 includes <strong class="strong-gradient"> Case Competition, Policy Case
+        Competition, Renewable Energy Innovation Competition, Policy Workshop, Field Trip, and Pentahelix Talks</strong>
+      all designed to facilitate the growth of knowledge within our local community. With support from renewable energy
+      experts, SRE UI ReEnergize Summit <strong class="strong-gradient">to drive meaningful change in Indonesia's energy
+        transition by promoting energy diversification, community resilience, and sustainable careers in the green
+        sector.</strong>
+
+      <!-- Contoh: Tambahkan lebih banyak paragraf atau elemen -->
+    </p>
+  </div>
 </div>
 
+<section class="bg-white w-full py-24 px-0" style="font-family: 'Arial', sans-serif; color: #333; line-height: 1.6;">
+  <!-- Judul -->
+  <h2 class="text-3xl font-bold text-green-600 inline-block" style="margin-left: 100px;">
+    Our Previous Event
+  </h2>
+  <span class="block h-1 w-56 mt-2 bg-gradient-to-r from-green-400 to-orange-400"  style="margin-left: 100px;"></span>
 
+  <!-- Grid gambar dengan overlay gradient atas & bawah -->
+  <div class="relative mt-10 mb-4">
+    <!-- Fade atas -->
+    <div class="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white to-transparent pointer-events-none"></div>
+
+<!-- Baris atas: 3 kolom tanpa gap -->
+<div class="grid grid-cols-3 gap-0 w-full">
+  <img src="{% static 'image/i1.png' %}" alt="Event photo 1" class="w-full h-80 object-cover" />
+  <img src="{% static 'image/i2.png' %}" alt="Event photo 2" class="w-full h-80 object-cover" />
+  <img src="{% static 'image/previous_event_2.jpg' %}" alt="Event photo 3" class="w-full h-80 object-cover" />
+</div>
+
+<!-- Baris bawah: full-width satu gambar -->
+<div class="grid grid-cols-2 gap-0 w-full">
+  <img src="{% static 'image/i4.png' %}" alt="Event photo 4" class="col-span-2 w-full h-[500px] object-cover" />
+</div>
+
+    <!-- Fade bawah -->
+    <div class="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white to-transparent pointer-events-none"></div>
+  </div>
+</section>
+
+  <section class="cta-section -mt-8"">
+    <div class="cta-container">
+      <h2 class="cta-heading">
+        Are you ready to participate<br>
+        in <span class="gradient-text">ReEnergize Summit 2025</span>?
+      </h2>
+      <p class="cta-subheading">We provide more.</p>
+  
+      <div class="cta-options">
+        <a href="#" class="cta-option">BCC</a>
+        <a href="#" class="cta-option">PCC</a>
+        <a href="#" class="cta-option">REIC</a>
+        <a href="#" class="cta-option">Field Trip</a>
+        <a href="#" class="cta-option">Workshop</a>
+        <a href="#" class="cta-option">Pentahelix Talks</a>
+      </div>
+    </div>
+  </section>
 
 <script>
-let scrollIndex = 0;
+  let scrollIndex = 0;
 
-function scrollCarousel(direction) {
+  function scrollCarousel(direction) {
     const track = document.getElementById('carousel-track');
     const cards = track.querySelectorAll('.event-card');
     const cardWidth = cards[0].offsetWidth + 24; // card + gap
@@ -65,14 +418,13 @@ function scrollCarousel(direction) {
     const maxIndex = totalCards - visibleCards;
 
     scrollIndex += direction;
-    
+
     // Batasi scrollIndex agar tidak kurang dari 0 atau lebih dari maxIndex
     scrollIndex = Math.max(0, Math.min(scrollIndex, maxIndex));
 
     const scrollAmount = scrollIndex * cardWidth;
     track.style.transform = `translateX(-${scrollAmount}px)`;
-}
-  </script>
-  
-    
+  }
+</script>
+
 {% endblock %}
