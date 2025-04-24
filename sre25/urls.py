@@ -22,5 +22,6 @@ urlpatterns = [
     path('', include('main.urls')), #ganti nanti jadi res/
     path('res/', include('res.urls')), #ganti nanti jadi res/
     path('competition/', include('competition.urls')),
+    path('event/', include('event.urls')),
 
 ]

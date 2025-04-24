@@ -1,84 +1,90 @@
 {% load static %}
 
-<nav id="main-nav" class="bg-[#1F393B] shadow-lg top-0 left-0 z-50 w-full fixed transition-transform duration-300">
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+<nav id="main-nav" class="bg-[#1B6600] shadow-lg fixed top-0 left-0 w-full z-50">
+    <div class="max-w-7xl mx-auto px-6">
         <div class="flex items-center justify-between h-24">
-            <!-- Logo di Kiri -->
-            <div class="flex items-center">
-                <a href="/" class="hover:opacity-80 size-[80px] select-none">
-                    <img src="{% static 'image/1.png' %}" alt="Logo" class="object-contain">
-                </a>
-            </div>
 
-            <!-- Navigation Links di Kanan -->
-            <div class="hidden md:flex space-x-6 text-white font-semibold text-2xl ml-auto">
-                <a href="{% url 'res:res_home' %}" class="hover:text-gray-300 relative {% if request.resolver_match.url_name == 'res_home' %}active-nav-link{% endif %}">RES</a>
-                <a href="{% url 'compe:bcc' %}" class="hover:text-gray-300 relative {% if request.resolver_match.url_name == 'bcc' %}active-nav-link{% endif %}">BCC</a>
-                <a href="{% url 'compe:pcc' %}" class="hover:text-gray-300 relative {% if request.resolver_match.url_name == 'pcc' %}active-nav-link{% endif %}">PCC</a>
-                <a href="{% url 'compe:reic' %}" class="hover:text-gray-300 relative {% if request.resolver_match.url_name == 'reic' %}active-nav-link{% endif %}">REIC</a>
+            <!-- Logo Text -->
+            <a href="/" class="flex items-center space-x-2 select-none">
+                <img src="{% static 'image/logo.png' %}" alt="Logo" class="h-7 object-contain">
+            </a>
+
+            <!-- Navigation Links -->
+            <div class="hidden md:flex ml-auto space-x-8 font-semibold text-lg text-white">
+                <a href="{% url 'res:res_home' %}"
+                    class="hover:text-gray-300 relative {% if request.resolver_match.url_name == 'res_home' %}active-nav-link{% endif %}">
+                    Home
+                </a>
+                <a href="{% url 'compe:bcc' %}"
+                    class="hover:text-gray-300 relative {% if request.resolver_match.url_name == 'bcc' %}active-nav-link{% endif %}">
+                    BCC
+                </a>
+                <a href="{% url 'compe:pcc' %}"
+                    class="hover:text-gray-300 relative {% if request.resolver_match.url_name == 'pcc' %}active-nav-link{% endif %}">
+                    PCC
+                </a>
+                <a href="{% url 'compe:reic' %}"
+                    class="hover:text-gray-300 relative {% if request.resolver_match.url_name == 'reic' %}active-nav-link{% endif %}">
+                    REIC
+                </a>
+                <a href="{% url 'event:field-trip' %}"
+                    class="hover:text-gray-300 relative {% if request.resolver_match.url_name == 'field-trip' %}active-nav-link{% endif %}">
+                    Field Trip
+                </a>
+                <a href="{% url 'event:workshop' %}"
+                    class="hover:text-gray-300 relative {% if request.resolver_match.url_name == 'workshop' %}active-nav-link{% endif %}">
+                    Workshop
+                </a>
+                <a href="{% url 'event:pentahelix-talks' %}"
+                    class="hover:text-gray-300 relative {% if request.resolver_match.url_name == 'pentahelix-talks' %}active-nav-link{% endif %}">
+                    Pentahelix Talks
+                </a>
             </div>
         </div>
     </div>
 </nav>
 
-
-
 <style>
-    /* Garis bawah untuk link aktif */
+    /* underline untuk link aktif */
     .active-nav-link::after {
         content: '';
         position: absolute;
+        bottom: -6px;
+        left: 0;
         width: 100%;
         height: 3px;
-        bottom: -8px;
-        left: 0;
         background-color: #fff;
         animation: fadeIn 0.3s ease-in-out;
     }
-    
-    /* Animasi untuk navbar scroll */
-    .nav-hidden {
-        transform: translateY(-100%);
-    }
-    
+
     @keyframes fadeIn {
-        from { opacity: 0; width: 0%; }
-        to { opacity: 1; width: 100%; }
+        from {
+            opacity: 0;
+            width: 0%;
+        }
+
+        to {
+            opacity: 1;
+            width: 100%;
+        }
     }
 </style>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', () => {
         const nav = document.getElementById('main-nav');
         let lastScroll = 0;
-        
-        // Handle scroll behavior
-        window.addEventListener('scroll', function() {
-            const currentScroll = window.pageYOffset;
-            
-            if (currentScroll <= 0) {
+
+        window.addEventListener('scroll', () => {
+            const current = window.pageYOffset;
+            if (current <= 0) {
                 nav.classList.remove('nav-hidden');
-                return;
-            }
-            
-            if (currentScroll > lastScroll && !nav.classList.contains('nav-hidden')) {
-                // Scroll ke bawah
+            } else if (current > lastScroll) {
                 nav.classList.add('nav-hidden');
-            } else if (currentScroll < lastScroll && nav.classList.contains('nav-hidden')) {
-                // Scroll ke atas
+            } else {
                 nav.classList.remove('nav-hidden');
             }
-            
-            lastScroll = currentScroll;
+            lastScroll = current;
         });
-        
-        // Mobile menu toggle (jika ada)
-        const mobileMenuBtn = document.querySelector("button.mobile-menu-button");
-        if (mobileMenuBtn) {
-            const mobileMenu = document.querySelector(".mobile-menu");
-            mobileMenuBtn.addEventListener("click", () => {
-                mobileMenu.classList.toggle("hidden");
-            });
-        }
     });
 </script>
