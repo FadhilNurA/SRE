@@ -1,44 +1,75 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Business Case Competition - RES 2025{% endblock %}
+{% block title %}SRE UI INTERNATIONAL BUSINESS CASE COMPETITION{% endblock %}
 
 {% block content %}
-<section class="bg-[#F4F4F4] text-[#1F393B] px-6 py-16 font-raleway">
-  <div class="max-w-4xl mx-auto">
-    <h1 class="text-5xl font-bold mb-6 text-center font-josefin">Business Case Competition (BCC)</h1>
-    <p class="text-lg mb-8 text-justify">
-      The <strong>Business Case Competition (BCC)</strong> by RES 2025 offers an exciting platform for students to tackle real-world sustainability challenges by developing creative, impactful, and feasible business strategies that promote renewable energy adoption.
-    </p>
+<div style="width: 100%; max-height: 100vh; background: #ffffff00; overflow: hidden;">
 
-    <h2 class="text-2xl font-semibold mb-4 mt-10">About the Competition</h2>
-    <p class="text-lg mb-8 text-justify">
-      BCC 2025 invites diploma (D3, D4) and undergraduate (S1) students from across Indonesia to present innovative business solutions in the sustainability sector. Participants are expected to design business models and strategies that enable industries to make a green transition and adopt renewable energy practices.
-    </p>
+  <!-- Wrapper Background dengan JPG + PNG -->
+  <div class="relative w-full h-full">
+    <!-- Gambar Background JPG -->
+    <img src="{% static 'image/2.jpg' %}" alt="Background JPG" class="w-full h-full object-cover">
 
-    <h2 class="text-2xl font-semibold mb-4 mt-10">Theme of BCC 2025</h2>
-    <h3 class="text-xl font-semibold mb-4 font-josefin">“Financing the Green Future: Building Sustainable Business Models for Renewable Energy”</h3>
-    <p class="text-lg mb-8 text-justify">
-      This year’s theme focuses on developing innovative financing mechanisms, incentive structures, and investment strategies that accelerate renewable energy transition in Indonesia. It's your chance to turn big ideas into actionable business solutions!
-    </p>
+    <!-- PNG Menumpuk di atas JPG -->
+    <div class="absolute top-0 left-0 w-full z-10">
+      <img src="{% static 'image/Rectangle 5857.png' %}" class="w-full block" alt="PNG Atas">
+      <img src="{% static 'image/Rectangle 5855.png' %}" class="w-full -mt-1 block" alt="PNG Bawah">
+    </div>
 
-    <div class="bg-white shadow-md rounded-xl p-6 text-center mt-12">
-      <h3 class="text-xl font-semibold mb-2">🎁 Total Prize Pool</h3>
-      <p class="text-3xl font-bold text-green-700">IDR 10,250,000</p>
+    <div class="absolute bottom-[20rem] left-0 w-full text-left text-white z-20">
+      <div class="max-w-[1200px] mx-auto px-6">
+        <!-- Judul -->
+        <div class="flex flex-wrap items-center mb-4">
+          <span class="text-[#299C00] text-[42px] font-bold uppercase mr-4">SRE UI</span>
+          <span class="bg-[#f37221] text-white text-[42px] font-bold uppercase px-4">INTERNATIONAL</span>
+        </div>
+        <div>
+          <span class="text-[#299C00] text-[42px] font-bold uppercase block">Business Case Competition</span>
+        </div>
+    
+        <!-- Paragraf panjang -->
+        <p style="color: black; font-size: 18px; font-family: 'Open Sans', sans-serif; font-weight: 400; text-align: justify; line-height: 1.6; margin-top: 30px;">
+          The SRE UI International Business Case Competition (IBCC) is
+          <strong class="strong-gradient"> a flagship competition under the annual Reenergize Summit, hosted by the Society of Renewable Energy Universitas Indonesia.</strong>
+          This competition is specifically designed to delve deep into the dynamic and rapidly evolving world of the renewable energy industry, offering a stage for undergraduate students—both national and international—to sharpen their analytical, strategic, and problem-solving skills.
+          As the renewable energy sector becomes a central focus of global sustainability efforts,
+          <strong class="strong-gradient">IBCC aims to bridge the gap between academic understanding and real-world business challenges.</strong>
+          Participants are tasked with navigating complex, real-world scenarios through in-depth case studies that reflect the multifaceted issues faced by today’s energy companies, policymakers, and innovators.
+        </p>
+      </div>
     </div>
     
-    <div class="text-center my-10">
-        <a href="#" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 text-xl">Register Now</a>
-      </div>
+    
+  </div>
+</div>
 
-    <h2 class="text-2xl font-semibold mt-12 mb-4 text-center">Be the Force of Green Innovation</h2>
-    <p class="text-lg text-center mb-6">Ready to pitch your winning idea? Compete with the best minds, impress our judges, and help build a sustainable future for Indonesia!</p>
+<section class="w-full bg-white py-16">
+  <div class="max-w-xl mx-auto text-center px-6">
+    <!-- Judul -->
+    <h2 class="text-green-700 text-2xl md:text-3xl font-bold mb-6">
+      For further information
+    </h2>
 
-    <div class="flex justify-center gap-6 mt-10">
-        <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded transition duration-300">Download Guidebook</a>
-        <a href="#" class="bg-gray-800 hover:bg-gray-900 text-white font-semibold py-2 px-6 rounded transition duration-300">Contact Person</a>
-      </div>
+    <!-- Kontak -->
+    <div class="text-green-900 text-base md:text-lg space-y-2 mb-10">
+      <p>Adit (089526741343)</p>
+      <p>Nadhif (085774245582)</p>
+      <p>corporate.reenergize@gmail.com</p>
+      <p>@reenergizesummit / @sreui.chapter</p>
+    </div>
 
+    <!-- Tombol -->
+    <div class="flex flex-col md:flex-row items-center justify-center gap-4">
+      <a href="#" class="bg-lime-400 hover:bg-lime-500 text-green-900 font-bold py-3 px-6 rounded-full shadow-md transition">
+        Register Now!
+      </a>
+      <a href="#" class="bg-yellow-400 hover:bg-yellow-500 text-orange-900 font-bold py-3 px-6 rounded-full shadow-md transition">
+        Guidebook
+      </a>
+    </div>
   </div>
 </section>
+
+
 {% endblock %}
