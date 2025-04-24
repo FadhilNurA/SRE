@@ -40,4 +40,5 @@ def register_team(request):
 def success(request):
     return render(request, 'success.html')
 
-
+def sre_home(request):
+    return render(request, 'sre.html')

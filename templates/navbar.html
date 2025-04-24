@@ -1,0 +1,106 @@
+{% load static %}
+
+<nav id="main-nav" class="bg-[#105D48] shadow-lg fixed top-0 left-0 w-full z-50">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex items-center justify-between h-24">
+
+            <!-- Logo Text -->
+            <a href="/" class="flex items-center space-x-2 select-none">
+                <img src="{% static 'image/logo.png' %}" alt="Logo" class="h-7 object-contain">
+            </a>
+
+            <!-- Navigation Links -->
+            <div class="hidden md:flex ml-auto space-x-8 font-semibold text-lg text-white">
+                <a href="{% url 'res:res_home' %}"
+                    class="hover:text-gray-300 relative {% if request.resolver_match.url_name == 'res_home' %}active-nav-link{% endif %}">
+                    Home
+                </a>
+                <a href="{% url 'compe:bcc' %}"
+                    class="hover:text-gray-300 relative {% if request.resolver_match.url_name == 'bcc' %}active-nav-link{% endif %}">
+                    BCC
+                </a>
+                <a href="{% url 'compe:pcc' %}"
+                    class="hover:text-gray-300 relative {% if request.resolver_match.url_name == 'pcc' %}active-nav-link{% endif %}">
+                    PCC
+                </a>
+                <a href="{% url 'compe:reic' %}"
+                    class="hover:text-gray-300 relative {% if request.resolver_match.url_name == 'reic' %}active-nav-link{% endif %}">
+                    REIC
+                </a>
+                <a href="{% url 'event:field-trip' %}"
+                    class="hover:text-gray-300 relative {% if request.resolver_match.url_name == 'field-trip' %}active-nav-link{% endif %}">
+                    Field Trip
+                </a>
+                <a href="{% url 'event:workshop' %}"
+                    class="hover:text-gray-300 relative {% if request.resolver_match.url_name == 'workshop' %}active-nav-link{% endif %}">
+                    Workshop
+                </a>
+                <a href="{% url 'event:pentahelix-talks' %}"
+                    class="hover:text-gray-300 relative {% if request.resolver_match.url_name == 'pentahelix-talks' %}active-nav-link{% endif %}">
+                    Pentahelix Talks
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<style>
+    /* underline untuk link aktif */
+    .active-nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: -6px;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background-color: #fff;
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            width: 0%;
+        }
+
+        to {
+            opacity: 1;
+            width: 100%;
+        }
+    }
+</style>
+
+<style>
+    .nav-hidden {
+        transform: translateY(-100%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .nav-visible {
+        transform: translateY(0);
+        transition: transform 0.3s ease-in-out;
+    }
+</style>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const nav = document.getElementById('main-nav');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const current = window.pageYOffset;
+            if (current <= 0) {
+                nav.classList.remove('nav-hidden');
+                nav.classList.add('nav-visible');
+            } else if (current > lastScroll) {
+                nav.classList.remove('nav-visible');
+                nav.classList.add('nav-hidden');
+            } else {
+                nav.classList.remove('nav-hidden');
+                nav.classList.add('nav-visible');
+            }
+            lastScroll = current;
+        });
+    });
+</script>

@@ -1,19 +1,78 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Page Title{% endblock %}
 
 {% block content %}
-    <div style="width: 1920px; height: 3886px; position: relative; background: #D9D9D9; overflow: hidden">
-        <!-- Text Insert Above -->
-        <div style="left: 465px; top: 2830px; position: absolute; text-align: justify; justify-content: center; display: flex; flex-direction: column; color: black; font-size: 64px; font-family: Open Sans; font-weight: 700; word-wrap: break-word">
-          Insert Previous Photo of RES 24
-        </div>
+<!-- Ganti #D9D9D9 dengan warna yang sesuai atau hapus jika tidak perlu -->
+<div style="width: 100%; min-height: 100vh; background: #1F393B; overflow-y: auto;">  <!-- Gunakan overflow-y: auto -->
+    <!-- Gambar di Bagian Atas -->
+    <div class="image-container">
+        <img src="{% static 'image/2.jpg' %}" class="background-image" alt="Background">
     
-        <!-- White Box with Content -->
-        <div style="width: 1833px; height: 676px; left: 46px; top: 1268px; position: absolute; background: linear-gradient(180deg, white 100%); box-shadow: 0px 6.427px 6.427px rgba(0, 0, 0, 0.25); border-radius: 64.27px; backdrop-filter: blur(37.5px); padding: 64px; box-sizing: border-box;">
-          <p style="color: black; font-size: 32px; font-family: 'Open Sans', sans-serif; font-weight: 400; text-align: justify; margin: 0;">
-            <strong>ReEnergize Summit 2025 by SRE UI</strong> is the biggest annual event organized by SRE UI, invites the public to participate in an engaging lineup of activities centered on renewable energy. The events within ReEnergize Summit 2025 includes Business Case Competition, Policy Case Competition, Renewable Energy Innovation Competition, Policy Workshop, Field Trip, and Pentahelix Talks all designed to facilitate the growth of knowledge within our local community. With support from renewable energy experts, SRE UI ReEnergize Summit strives to drive meaningful change in Indonesia’s energy transition by promoting energy diversification, community resilience, and sustainable careers in the green sector.
-          </p>
-        </div>
+        <!-- Frame / Layer Tengah (Image 3) -->
+        <!-- <img src="{% static 'image/3.png' %}" class="middle-frame" alt="Middle Frame"> -->
+    
+        <!-- Overlay Tengah (Image 4) -->
+        <img src="{% static 'image/4.png' %}" class="centered-overlay" alt="Overlay">
+    
+        <!-- Animated Element (Image 5) -->
+        <img src="{% static 'image/5.png' %}" class="animated-overlay" alt="Animated Overlay">
     </div>
+    
+    <!-- White Box dengan Konten Panjang -->
+    <div style="width: 90%; max-width: 1833px; margin: 40px auto; background: white; box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25); border-radius: 64px; padding: 64px; box-sizing: border-box; margin-bottom: 100px;">  <!-- Tambah margin-bottom -->
+        <p style="color: black; font-size: 24px; font-family: 'Open Sans', sans-serif; font-weight: 400; text-align: justify; line-height: 1.6;">
+            ReEnergize Summit 2025 by SRE UI is <strong class="strong-gradient">the biggest annual event organized by SRE UI</strong>, invites the public to participate in an engaging lineup of activities centered on renewable energy. The events within ReEnergize Summit 2025 includes <strong class="strong-gradient"> Case Competition, Policy Case Competition, Renewable Energy Innovation Competition, Policy Workshop, Field Trip, and Pentahelix Talks</strong> all designed to facilitate the growth of knowledge within our local community. With support from renewable energy experts, SRE UI ReEnergize Summit <strong class="strong-gradient">to drive meaningful change in Indonesia’s energy transition by promoting energy diversification, community resilience, and sustainable careers in the green sector.</strong>
+
+            <!-- Contoh: Tambahkan lebih banyak paragraf atau elemen -->
+        </p>
+    </div>
+
+    <!-- Previous Our Previous Event Section -->
+    <div class="previous-events-wrapper white-bg">
+        <h2 class="center-title"><strong class ="strong-gradient"> Previous Events</strong></h2>
+          
+          <div class="carousel-container">
+            <div class="carousel-viewport">
+              <div class="carousel-track" id="carousel-track">
+                <div class="event-card"><img src="{% static 'image/previous_event_1.jpg' %}" alt="Event 1"></div>
+                <div class="event-card"><img src="{% static 'image/previous_event_2.jpg' %}" alt="Event 2"></div>
+                <div class="event-card"><img src="{% static 'image/previous_event_3.jpg' %}" alt="Event 3"></div>
+                <div class="event-card"><img src="{% static 'image/previous_event_4.jpg' %}" alt="Event 4"></div>
+                <div class="event-card"><img src="{% static 'image/previous_event_5.jpg' %}" alt="Event 5"></div>
+                <div class="event-card"><img src="{% static 'image/previous_event_6.jpg' %}" alt="Event 6"></div>
+                <div class="event-card"><img src="{% static 'image/previous_event_7.jpg' %}" alt="Event 7"></div>
+                 </div>
+                 <button class="carousel-btn prev-btn" onclick="scrollCarousel(-1)">‹</button>
+                    <button class="carousel-btn next-btn" onclick="scrollCarousel(1)">›</button>
+            </div>
+          </div>  
+
+</div>
+
+
+
+<script>
+let scrollIndex = 0;
+
+function scrollCarousel(direction) {
+    const track = document.getElementById('carousel-track');
+    const cards = track.querySelectorAll('.event-card');
+    const cardWidth = cards[0].offsetWidth + 24; // card + gap
+    const visibleCards = 3;
+    const totalCards = cards.length;
+    const maxIndex = totalCards - visibleCards;
+
+    scrollIndex += direction;
+    
+    // Batasi scrollIndex agar tidak kurang dari 0 atau lebih dari maxIndex
+    scrollIndex = Math.max(0, Math.min(scrollIndex, maxIndex));
+
+    const scrollAmount = scrollIndex * cardWidth;
+    track.style.transform = `translateX(-${scrollAmount}px)`;
+}
+  </script>
+  
+    
 {% endblock %}
