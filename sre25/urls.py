@@ -21,5 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('res.urls')), #ganti nanti jadi res/
     path('competition/', include('competition.urls')),
+    path('event/', include('event.urls')),
 
 ]
