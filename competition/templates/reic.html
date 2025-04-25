@@ -6,39 +6,48 @@ ReEnergize Summit Renewable Energy Innovation Competition
 {% endblock %}
 
 {% block content %}
-<div style="width: 100%; max-height: 100vh; background: #ffffff00; overflow: hidden;">
+<div class="w-full bg-transparent overflow-hidden">
   <!-- Wrapper Background dengan JPG + PNG -->
-  <div class="relative w-full h-full">
+  <div class="relative w-full min-h-[calc(100vh-80px)] sm:min-h-[700px] md:min-h-[800px] lg:min-h-[100vh]">
     <!-- Gambar Background JPG -->
-    <img src="{% static 'image/2.jpg' %}" alt="Background JPG" class="w-full h-full object-cover">
+    <img src="{% static 'image/2.jpg' %}" alt="Background JPG" class="absolute w-full h-full object-cover z-0">
 
-    <!-- PNG Menumpuk di atas JPG -->
-    <div class="absolute top-0 left-0 w-full z-10">
-      <img src="{% static 'image/Rectangle 5857.png' %}" class="w-full block" alt="PNG Atas">
-      <img src="{% static 'image/Rectangle 5855.png' %}" class="w-full -mt-1 block" alt="PNG Bawah">
-    </div>
+    <!-- Gradient overlay -->
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#f4f8fb] to-white z-10"></div>
 
-    <!-- Judul & Deskripsi -->
-    <div class="absolute bottom-[20rem] left-0 w-full text-left text-white z-20">
-      <div class="max-w-[1200px] mx-auto px-6">
-        <div class="flex flex-wrap items-center mb-4 fade-in-up fade-delay-1">
-          <span class="text-[#299C00] text-[42px] font-bold uppercase mr-4">Renewable Energy</span>
+    <!-- Content Container -->
+    <div class="absolute left-0 w-full z-20 pt-[100px] pb-8 px-6 
+                sm:pt-0 sm:top-1/2 sm:-translate-y-1/2">
+      <div class="max-w-[1200px] mx-auto">
+        <!-- Title Section - Mobile Optimized -->
+        <div class="mb-2 sm:mb-4 fade-in-up fade-delay-1">
+          <span class="text-[#299C00] text-3xl sm:text-4xl font-bold uppercase block">
+            Renewable Energy
+          </span>
         </div>
-        <div class="fade-in-up fade-delay-2 flex items-center space-x-2">
-          <span class="bg-[#f37221] text-white text-[42px] font-bold uppercase px-4">Innovation</span>
-          <span class="text-[#299C00] text-[42px] font-bold uppercase">Competition</span>
+        
+        <div class="fade-in-up fade-delay-2 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+          <span class="bg-[#f37221] text-white text-3xl sm:text-4xl font-bold uppercase 
+                     px-4 py-1 sm:px-4 sm:py-0 inline-block w-fit">
+            Innovation
+          </span>
+          <span class="text-[#299C00] text-3xl sm:text-4xl font-bold uppercase">
+            Competition
+          </span>
         </div>        
         
-        <div class="fade-in-up fade-delay-3">
-          <p style="color: black; font-size: 18px; font-family: 'Open Sans', sans-serif; font-weight: 400; text-align: justify; line-height: 1.6; margin-top: 30px;">
+        <!-- Content - Made more compact for mobile -->
+        <div class="fade-in-up fade-delay-3 mt-4 sm:mt-6">
+          <p class="text-black text-sm sm:text-base md:text-[18px] font-normal text-justify leading-relaxed">
             The Renewable Energy Innovation Competition (REIC) is
             <strong class="strong-gradient">a premier competition organized under the Reenergize Summit by the Society of Renewable Energy Universitas Indonesia.</strong>
             REIC is crafted to explore the frontiers of innovation in the renewable energy sector, providing a platform for undergraduate students—both national and international—to unleash their creativity, strategic thinking, and technical prowess.
             In an era where innovation is crucial to accelerating the global energy transition,
             <strong class="strong-gradient">REIC empowers future changemakers to turn groundbreaking ideas into actionable, real-world solutions.</strong>
+          </p>
+          <p class="text-black text-sm sm:text-base md:text-[18px] font-normal text-justify leading-relaxed mt-3">
             Participants will tackle pressing challenges in renewable energy through immersive case studies and innovation challenges that mirror the complexities faced by today's energy innovators, startups, and sustainability leaders.
           </p>
-          
         </div>
       </div>
     </div>
