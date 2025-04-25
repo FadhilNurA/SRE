@@ -1,63 +1,98 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Policy Case Competition - RES 2025{% endblock %}
+{% block title %}
+SRE UI FIELD TRIP
+{% endblock %}
 
 {% block content %}
-<section class="bg-[#F4F4F4] text-[#1F393B] px-6 py-16 font-raleway">
-    <div class="max-w-4xl mx-auto">
-        <h1 class="text-5xl font-bold mb-6 text-center font-josefin">Policy Case Competition (PCC)</h1>
-        <p class="text-lg mb-8 text-justify">
-            The <strong>Policy Case Competition (PCC)</strong> is a national-level policy design challenge, inviting
-            students to craft innovative and implementable policy recommendations addressing pressing issues in
-            renewable energy and sustainability.
-        </p>
+<div style="width: 100%; max-height: 100vh; background: #ffffff00; overflow: hidden;">
+  <!-- Wrapper Background dengan JPG + PNG -->
+  <div class="relative w-full h-full">
+    <!-- Gambar Background JPG -->
+    <img src="{% static 'image/2.jpg' %}" alt="Background JPG" class="w-full h-full object-cover">
 
-        <h2 class="text-2xl font-semibold mb-4 mt-10">About the Competition</h2>
-        <p class="text-lg mb-8 text-justify">
-            RES 2025’s PCC is designed to empower undergraduate and diploma students across Indonesia to tackle
-            real-world policy problems through research-based solutions. This competition challenges participants to
-            formulate strategic, feasible, and sustainable policy proposals aimed at boosting Indonesia’s clean energy
-            agenda.
-        </p>
-
-        <h2 class="text-2xl font-semibold mb-4 mt-10">Theme of PCC 2025</h2>
-        <h3 class="text-xl font-semibold mb-4 font-josefin">“Shaping Policy for a Green Tomorrow: Regulatory Solutions
-            for Energy Transition”</h3>
-        <p class="text-lg mb-8 text-justify">
-            Under the RES 2025 umbrella, this competition encourages future policy makers to present ideas that
-            harmonize regulatory frameworks, public awareness, and government-private collaboration to facilitate an
-            inclusive and sustainable energy transition in Indonesia.
-        </p>
-
-        <div class="bg-white shadow-md rounded-xl p-6 text-center mt-12">
-            <h3 class="text-xl font-semibold mb-2">🎁 Total Prize Pool</h3>
-            <p class="text-3xl font-bold text-green-700">IDR 10,250,000</p>
-        </div>
-
-        <div class="text-center my-10">
-            <a href="#"
-                class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 text-xl">Register
-                Now</a>
-        </div>
-
-        <h2 class="text-2xl font-semibold mt-12 mb-4 text-center">Be Part of the Change</h2>
-        <p class="text-lg text-center mb-6">PCC 2025 is more than a competition—it’s a call to action for youth to
-            reimagine Indonesia’s energy policy. Submit your proposal and take the lead in shaping impactful
-            regulations!</p>
-
-        <div class="flex justify-center gap-6 mt-10">
-            <a href="#"
-                class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded transition duration-300">Download
-                Guidebook</a>
-            <a href="#"
-                class="bg-gray-800 hover:bg-gray-900 text-white font-semibold py-2 px-6 rounded transition duration-300">Contact
-                Person</a>
-        </div>
-
+    <!-- PNG Menumpuk di atas JPG -->
+    <div class="absolute top-0 left-0 w-full z-10">
+      <img src="{% static 'image/Rectangle 5857.png' %}" class="w-full block" alt="PNG Atas">
+      <img src="{% static 'image/Rectangle 5855.png' %}" class="w-full -mt-1 block" alt="PNG Bawah">
     </div>
+
+    <!-- Judul & Deskripsi -->
+    <div class="absolute bottom-[20rem] left-0 w-full text-left text-white z-20">
+      <div class="max-w-[1200px] mx-auto px-6">
+        <div class="flex flex-wrap items-center mb-4 fade-in-up fade-delay-1">
+          <span class="text-[#299C00] text-[42px] font-bold uppercase mr-4">FIELD</span>
+          <span class="bg-[#f37221] text-white text-[42px] font-bold uppercase px-4">TRIP</span>
+        </div>
+        
+        <div class="fade-in-up fade-delay-3">
+          <p style="color: black; font-size: 18px; font-family: 'Open Sans', sans-serif; font-weight: 400; text-align: justify; line-height: 1.6; margin-top: 30px;">
+            <strong class="strong-gradient">What is Field Trip?</strong><br>
+            The Field Trip is an event before the Grand Seminar, where <strong class="strong-gradient"> registrants will visit a renewable energy office/power plant.</strong> During the visit, participants will <strong class="strong-gradient">tour the company's facilities, interact with industry professionals, and learn about innovative renewable energy sources.</strong> Experts will share insights on clean energy production, environmental impact, and career opportunities in the field. The event will <strong class="strong-gradient">prioritize finalists of the competitions and SRE UI members.</strong>
+                </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Objectives Section -->
+<section class="w-full bg-white py-16">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <div class="mb-12 text-left">
+      <h2 class="text-5xl font-bold text-green-600">Objectives</h2>
+      <div class="h-2 mt-2 bg-gradient-to-r from-green-500 via-yellow-400 to-orange-500 rounded-full"></div>
+    </div>
+
+    <div class="bg-white rounded-3xl shadow-lg p-12 relative">
+      <ol class="list-decimal pl-6 space-y-4 text-lg text-gray-800">
+        <li>Providing participants with new insights and experiences related to the renewable energy sector and its applications in the industrial world.</li>
+        <li>Gaining new knowledge about the production process flow and the management of renewable energy.</li>
+        <li>Understanding industry profiles and the key preparations needed to become an ideal worker in the green jobs sector.</li>
+      </ol>
+    </div>
+  </div>
 </section>
 
-{% include 'timeline.html' %}
+<!-- Expected Outcomes Section -->
+<section class="w-full bg-white py-16">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <div class="mb-12 text-left">
+      <h2 class="text-5xl font-bold text-green-600">Expected Outcomes</h2>
+      <div class="h-2 mt-2 bg-gradient-to-r from-green-500 via-yellow-400 to-orange-500 rounded-full"></div>
+    </div>
+
+    <div class="bg-white rounded-3xl shadow-lg p-12 relative">
+      <ol class="list-decimal pl-6 space-y-4 text-lg text-gray-800">
+        <li>Increase participants' understanding of the renewable energy sector</li>
+        <li>Gain direct experience in renewable energy sector jobs.</li>
+        <li>Foster partnerships between SRE UI and PLN for potential future collaborations</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- Date and Time Section -->
+<section class="w-full bg-white py-16">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <div class="mb-12 text-left">
+      <h2 class="text-5xl font-bold text-green-600">Date and Time</h2>
+      <div class="h-2 mt-2 bg-gradient-to-r from-green-500 via-yellow-400 to-orange-500 rounded-full"></div>
+    </div>
+
+    <div class="bg-white rounded-3xl shadow-lg p-12 relative">
+      <div class="text-center">
+        <h3 class="text-3xl font-bold text-green-700 mb-4">Friday, June 13, 2025</h3>
+        <p class="text-2xl text-gray-700 mb-8">10:00 AM - 4:00 PM WIB</p>
+        <div class="border-t border-gray-200 pt-8">
+          <h4 class="text-xl font-semibold text-gray-800 mb-2">Location:</h4>
+          <p class="text-lg text-gray-700">Saguling Hydroelectric Power Plant (PLTA Saguling), Clearneng Cipanas, Rajamandala Kulon, Cipalat District, West Bandung Regency, West Java 40554, Indonesia</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 {% endblock %}

@@ -1,60 +1,191 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Policy Case Competition - RES 2025{% endblock %}
+{% block title %}
+SRE UI PENTAHELIX TALKS
+{% endblock %}
 
 {% block content %}
-<section class="bg-[#F4F4F4] text-[#1F393B] px-6 py-16 font-raleway">
-    <div class="max-w-4xl mx-auto">
-        <h1 class="text-5xl font-bold mb-6 text-center font-josefin">Policy Case Competition (PCC)</h1>
-        <p class="text-lg mb-8 text-justify">
-            The <strong>Policy Case Competition (PCC)</strong> is a national-level policy design challenge, inviting
-            students to craft innovative and implementable policy recommendations addressing pressing issues in
-            renewable energy and sustainability.
-        </p>
+<div style="width: 100%; max-height: 100vh; background: #ffffff00; overflow: hidden;">
+  <!-- Wrapper Background dengan JPG + PNG -->
+  <div class="relative w-full h-full">
+    <!-- Gambar Background JPG -->
+    <img src="{% static 'image/2.jpg' %}" alt="Background JPG" class="w-full h-full object-cover">
 
-        <h2 class="text-2xl font-semibold mb-4 mt-10">About the Competition</h2>
-        <p class="text-lg mb-8 text-justify">
-            RES 2025’s PCC is designed to empower undergraduate and diploma students across Indonesia to tackle
-            real-world policy problems through research-based solutions. This competition challenges participants to
-            formulate strategic, feasible, and sustainable policy proposals aimed at boosting Indonesia’s clean energy
-            agenda.
-        </p>
-
-        <h2 class="text-2xl font-semibold mb-4 mt-10">Theme of PCC 2025</h2>
-        <h3 class="text-xl font-semibold mb-4 font-josefin">“Shaping Policy for a Green Tomorrow: Regulatory Solutions
-            for Energy Transition”</h3>
-        <p class="text-lg mb-8 text-justify">
-            Under the RES 2025 umbrella, this competition encourages future policy makers to present ideas that
-            harmonize regulatory frameworks, public awareness, and government-private collaboration to facilitate an
-            inclusive and sustainable energy transition in Indonesia.
-        </p>
-
-        <div class="bg-white shadow-md rounded-xl p-6 text-center mt-12">
-            <h3 class="text-xl font-semibold mb-2">🎁 Total Prize Pool</h3>
-            <p class="text-3xl font-bold text-green-700">IDR 10,250,000</p>
-        </div>
-
-        <div class="text-center my-10">
-            <a href="#"
-                class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 text-xl">Register
-                Now</a>
-        </div>
-
-        <h2 class="text-2xl font-semibold mt-12 mb-4 text-center">Be Part of the Change</h2>
-        <p class="text-lg text-center mb-6">PCC 2025 is more than a competition—it’s a call to action for youth to
-            reimagine Indonesia’s energy policy. Submit your proposal and take the lead in shaping impactful
-            regulations!</p>
-
-        <div class="flex justify-center gap-6 mt-10">
-            <a href="#"
-                class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded transition duration-300">Download
-                Guidebook</a>
-            <a href="#"
-                class="bg-gray-800 hover:bg-gray-900 text-white font-semibold py-2 px-6 rounded transition duration-300">Contact
-                Person</a>
-        </div>
-
+    <!-- PNG Menumpuk di atas JPG -->
+    <div class="absolute top-0 left-0 w-full z-10">
+      <img src="{% static 'image/Rectangle 5857.png' %}" class="w-full block" alt="PNG Atas">
+      <img src="{% static 'image/Rectangle 5855.png' %}" class="w-full -mt-1 block" alt="PNG Bawah">
     </div>
+
+   <!-- Judul & Deskripsi -->
+   <div class="absolute bottom-[20rem] left-0 w-full text-left text-white z-20">
+    <div class="max-w-[1200px] mx-auto px-6">
+      <div class="flex flex-wrap items-center mb-4 fade-in-up fade-delay-1">
+        <span class="text-[#299C00] text-[42px] font-bold uppercase block">Pentahelix</span>
+        <span class="bg-[#f37221] text-white text-[42px] font-bold uppercase px-4">Talks</span>
+      </div>
+      <div class="fade-in-up fade-delay-2">
+        <span class="text-[#299C00] text-[42px] font-bold uppercase block">
+          Reenergize Summit SRE UI 2025</span>
+      </div>
+      
+      <div class="fade-in-up fade-delay-3">
+        <p style="color: black; font-size: 18px; font-family: 'Open Sans', sans-serif; font-weight: 400; text-align: justify; line-height: 1.6; margin-top: 30px;">
+          <strong class="strong-gradient">Pentahelix Talks</strong> is <strong class="strong-gradient">the main event of the ReEnergize Summit 2025 series</strong>. It brings together <strong class="strong-gradient">five renowned speakers from five key sectors</strong>: <strong class="strong-gradient">Academia, Business, Government, Community, and Media</strong>. The speakers will engage in <strong class="strong-gradient">an in-depth discussion</strong>, sharing insights and perspectives from their respective fields to <strong class="strong-gradient">encourage collaboration and innovation across sectors</strong>. After the discussion, <strong class="strong-gradient">awards will be given to the winners</strong> of competitions held during the previous series of events.
+        </p>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+<!-- Background Section -->
+<section class="w-full bg-white py-16">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <div class="mb-12 text-left">
+      <h2 class="text-5xl font-bold text-green-600">Background</h2>
+      <div class="h-2 mt-2 bg-gradient-to-r from-green-500 via-yellow-400 to-orange-500 rounded-full"></div>
+    </div>
+
+    <div class="bg-white rounded-3xl shadow-lg p-12 relative">
+      <p class="text-lg text-gray-800 mb-8">
+        As <strong class="strong-gradient">climate change and energy security concerns</strong> grow, the shift towards <strong class="strong-gradient">decentralized and diversified energy systems</strong> has become essential. A centralized energy grid is vulnerable to <strong class="strong-gradient">disruptions, inefficiencies, and economic risks</strong>. By leveraging <strong class="strong-gradient">regional energy sources</strong>, communities can build resilience and ensure stable access to clean energy using <strong class="strong-gradient">Renewable Energy Technology</strong>.
+      </p>
+      <p class="text-lg text-gray-800">
+        <strong class="strong-gradient">Pentahelix Talks will foster multi-sector collaboration</strong> to explore practical solutions for achieving this goal with stakeholders from five key sectors:
+      </p>
+    </div>
+  </div>
 </section>
+
+<!-- Sectors Section -->
+<!-- Sectors Section -->
+<section class="w-full bg-white py-16">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <!-- First Row - 3 Columns -->
+    <div class="grid md:grid-cols-3 gap-8 mb-8">
+      <!-- Academia -->
+      <div class="bg-white rounded-3xl shadow-lg p-8 hover:shadow-xl transition">
+        <h3 class="text-2xl font-bold text-green-700 mb-4">Academia</h3>
+        <p class="text-gray-800">
+          <strong class="strong-gradient">Deepening exploration</strong> of technological innovations and <strong class="strong-gradient">research-driven strategies</strong> that can enhance decentralized energy systems' <strong class="strong-gradient">efficiency, scalability, and impact</strong>.
+        </p>
+      </div>
+
+      <!-- Government -->
+      <div class="bg-white rounded-3xl shadow-lg p-8 hover:shadow-xl transition">
+        <h3 class="text-2xl font-bold text-green-700 mb-4">Government</h3>
+        <p class="text-gray-800">
+          Establishing <strong class="strong-gradient">policies and regulations</strong> that support decentralized energy adoption ensures a <strong class="strong-gradient">stable, equitable, and sustainable</strong> energy transition.
+        </p>
+      </div>
+
+      <!-- Business -->
+      <div class="bg-white rounded-3xl shadow-lg p-8 hover:shadow-xl transition">
+        <h3 class="text-2xl font-bold text-green-700 mb-4">Business</h3>
+        <p class="text-gray-800">
+          Exploring <strong class="strong-gradient">emerging opportunities</strong>, investment approaches, and <strong class="strong-gradient">financial strategies</strong> that can drive sustainable and profitable decentralized energy markets.
+        </p>
+      </div>
+    </div>
+
+    <!-- Second Row - 2 Centered Columns -->
+    <div class="flex justify-center">
+      <div class="grid md:grid-cols-2 gap-8 max-w-2xl">
+        <!-- Community -->
+        <div class="bg-white rounded-3xl shadow-lg p-8 hover:shadow-xl transition">
+          <h3 class="text-2xl font-bold text-green-700 mb-4">Community</h3>
+          <p class="text-gray-800">
+            Strengthening <strong class="strong-gradient">community-led initiatives</strong> by fostering local leadership, <strong class="strong-gradient">sustainable ownership models</strong>, and innovative strategies for decentralized energy adoption.
+          </p>
+        </div>
+
+        <!-- Media -->
+        <div class="bg-white rounded-3xl shadow-lg p-8 hover:shadow-xl transition">
+          <h3 class="text-2xl font-bold text-green-700 mb-4">Media</h3>
+          <p class="text-gray-800">
+            Utilizing media to enhance <strong class="strong-gradient">public awareness</strong>, influence policies, and drive <strong class="strong-gradient">support for decentralized energy</strong> initiatives.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pentahelix Talks Focus Section -->
+<section class="w-full bg-white py-16">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <div class="mb-12 text-center">
+      <h2 class="text-5xl font-bold text-green-600">"Diversifying the Future Grid: Decentralized Power to Community Resilience"</h2>
+      <div class="h-2 mt-2 bg-gradient-to-r from-green-500 via-yellow-400 to-orange-500 rounded-full"></div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 mb-16">
+      <!-- Session 1 -->
+      <div class="bg-white rounded-3xl shadow-lg p-8 hover:shadow-xl transition">
+        <div class="text-6xl font-bold text-green-600 mb-4">1</div>
+        <h3 class="text-2xl font-bold text-green-700 mb-4">Enabling Decentralization Through Energy Diversification</h3>
+        <p class="text-gray-800">
+          Exploring how <strong class="strong-gradient">diverse energy sources</strong> can create <strong class="strong-gradient">robust decentralized systems</strong> that reduce reliance on single-point failures in traditional grids.
+        </p>
+      </div>
+
+      <!-- Session 2 -->
+      <div class="bg-white rounded-3xl shadow-lg p-8 hover:shadow-xl transition">
+        <div class="text-6xl font-bold text-green-600 mb-4">2</div>
+        <h3 class="text-2xl font-bold text-green-700 mb-4">Achieving Resilient Communities Through Decentralized Energy</h3>
+        <p class="text-gray-800">
+          Examining how <strong class="strong-gradient">local energy solutions</strong> empower communities to withstand disruptions while <strong class="strong-gradient">promoting sustainability</strong> and energy independence.
+        </p>
+      </div>
+    </div>
+
+    <!-- Benefits Section -->
+    <div class="mb-12 text-left">
+      <h2 class="text-5xl font-bold text-green-600">Why Participate?</h2>
+      <div class="h-2 mt-2 bg-gradient-to-r from-green-500 via-yellow-400 to-orange-500 rounded-full"></div>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <!-- Benefit 1 -->
+      <div class="bg-white rounded-3xl shadow-lg p-8 hover:shadow-xl transition">
+        <div class="text-4xl font-bold text-green-600 mb-4">1</div>
+        <h3 class="text-xl font-bold text-green-700 mb-4">Gain Knowledge</h3>
+        <p class="text-gray-800">
+          Learn from <strong class="strong-gradient">experts across government, business, academia, community, and media</strong> about diversifying energy for community resilience.
+        </p>
+      </div>
+
+      <!-- Benefit 2 -->
+      <div class="bg-white rounded-3xl shadow-lg p-8 hover:shadow-xl transition">
+        <div class="text-4xl font-bold text-green-600 mb-4">2</div>
+        <h3 class="text-xl font-bold text-green-700 mb-4">Engage in Discussions</h3>
+        <p class="text-gray-800">
+          Participate in <strong class="strong-gradient">interactive panel sessions</strong>, exchanging ideas on a sustainable future.
+        </p>
+      </div>
+
+      <!-- Benefit 3 -->
+      <div class="bg-white rounded-3xl shadow-lg p-8 hover:shadow-xl transition">
+        <div class="text-4xl font-bold text-green-600 mb-4">3</div>
+        <h3 class="text-xl font-bold text-green-700 mb-4">Connect with Enthusiasts</h3>
+        <p class="text-gray-800">
+          Engage with others <strong class="strong-gradient">passionate about renewable energy</strong> to exchange ideas and experiences.
+        </p>
+      </div>
+
+      <!-- Benefit 4 -->
+      <div class="bg-white rounded-3xl shadow-lg p-8 hover:shadow-xl transition">
+        <div class="text-4xl font-bold text-green-600 mb-4">4</div>
+        <h3 class="text-xl font-bold text-green-700 mb-4">Take Action</h3>
+        <p class="text-gray-800">
+          Join discussions that encourage <strong class="strong-gradient">real steps toward building</strong> resilient and sustainable energy communities.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
 {% endblock %}
