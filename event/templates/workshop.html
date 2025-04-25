@@ -20,17 +20,18 @@ SRE UI WORKSHOP
                 top-[100px] pb-10  /* Mobile positioning with padding-bottom */
                 sm:top-1/2 sm:-translate-y-1/2 sm:pb-0  /* Desktop positioning */
                 ">
-    <div class="max-w-[1200px] mx-auto px-6">
+    <div class="max-w-[1200px] mx-auto px-6 container mx-auto px-4 py-12 md:py-16">
       <div class="flex flex-wrap items-center mb-4 fade-in-up fade-delay-1">
-        <span class="bg-[#f37221] text-white text-[42px] font-bold uppercase px-4">Workshop</span>
+        <span class="bg-[#f37221] text-white text-[32px] md:text-[42px] font-bold uppercase px-4">Workshop</span>
       </div>
       <div class="fade-in-up fade-delay-2">
-        <span class="text-[#299C00] text-[42px] font-bold uppercase block">
+        <span class="text-[#299C00] text-[32px] md:text-[42px] font-bold uppercase block">
           Reenergize Summit SRE UI 2025</span>
       </div>
       
       <div class="fade-in-up fade-delay-3">
-        <p style="color: black; font-size: 18px; font-family: 'Open Sans', sans-serif; font-weight: 400; text-align: justify; line-height: 1.6; margin-top: 30px;">
+        <p style="color: black; font-family: 'Open Sans', sans-serif; font-weight: 400; text-align: justify; line-height: 1.6; margin-top: 30px;"
+          class="text-[16px] sm:text-[18px]">
           <strong class="strong-gradient">Young people's attention to environmental issues, especially the climate crisis, has been increasing.</strong> However, <strong class="strong-gradient">many of them still perceive the climate crisis as merely a natural phenomenon.</strong> Furthermore, <strong class="strong-gradient">their understanding of this issue remains limited,</strong> and <strong class="strong-gradient">they have not been sufficiently involved in the process of formulating climate policies at the regional level, particularly regarding energy transition issues.</strong>  
       </p>
       </div>
@@ -42,9 +43,9 @@ SRE UI WORKSHOP
 <!-- Objectives Section -->
 <section class="w-full bg-white py-16">
   <div class="max-w-[1200px] mx-auto px-6">
-    <div class="mb-12 text-right">
-      <h2 class="text-5xl font-bold text-green-600">Objectives</h2>
-      <div class="h-2 mt-2 bg-gradient-to-r from-green-500 via-yellow-400 to-orange-500 rounded-full"></div>
+    <div class="mb-12 text-right animate-on-scroll">
+      <h2 class="text-4xl sm:text-5xl font-bold text-green-600 animate-appear delay-1">Objectives</h2>
+      <div class="h-2 mt-2 bg-gradient-to-r from-green-500 via-yellow-400 to-orange-500 rounded-full animate-appear delay-2"></div>
     </div>
 
     <div class="bg-white rounded-3xl shadow-lg p-12 relative">
@@ -65,9 +66,9 @@ SRE UI WORKSHOP
 <!-- Workshop Concept Section -->
 <section class="w-full bg-white py-16">
   <div class="max-w-[1200px] mx-auto px-6">
-    <div class="mb-12 text-left">
-      <h2 class="text-5xl font-bold text-green-600">Energy Policy Workshop Concept</h2>
-      <div class="h-2 mt-2 bg-gradient-to-r from-green-500 via-yellow-400 to-orange-500 rounded-full"></div>
+    <div class="mb-12 text-left animate-on-scroll">
+      <h2 class="text-4xl sm:text-5xl font-bold text-green-600 animate-appear delay-1">Energy Policy Workshop Concept</h2>
+      <div class="h-2 mt-2 bg-gradient-to-r from-green-500 via-yellow-400 to-orange-500 rounded-full animate-appear delay-2"></div>
     </div>
 
     <div class="bg-white rounded-3xl shadow-lg p-12 relative">
@@ -126,5 +127,57 @@ SRE UI WORKSHOP
     <div class="absolute inset-0 bg-gradient-to-b from-white/100 via-white/50 to-transparent"></div>
   </div>
   
+{% block extra_css %}
+<style>
+  /* Animasi fadeInUp */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
 
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-appear {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  /* Delay untuk animasi berurutan */
+  .delay-1 {
+    animation-delay: 0.3s;
+  }
+
+  .delay-2 {
+    animation-delay: 0.6s;
+  }
+
+  .delay-3 {
+    animation-delay: 0.9s;
+  }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-appear');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    // Target semua elemen yang perlu dianimasi
+    document.querySelectorAll('.animate-on-scroll').forEach((element) => {
+      observer.observe(element);
+    });
+  });
+</script>
+{% endblock %}
 {% endblock %}

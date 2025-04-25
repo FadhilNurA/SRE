@@ -524,14 +524,14 @@
   </div>
 </div>
 
-<section class="bg-white w-full py-24 px-0 md:py-24 py-16"
+<section class="bg-white w-full py-24 px-0 md:py-24 py-16 animate-on-scroll"
   style="font-family: 'Arial', sans-serif; color: #333; line-height: 1.6;">
   <!-- Judul - Responsif untuk Mobile -->
-  <h2 class="text-3xl md:text-3xl text-2xl font-bold text-green-600 inline-block"
+  <h2 class="text-3xl md:text-3xl text-2xl font-bold text-green-600 inline-block animate-appear delay-1"
     style="margin-left: 100px; margin-left: max(20px, min(100px, 10%));">
     Our Previous Event
   </h2>
-  <span class="block h-1 w-56 md:w-56 w-40 mt-2 bg-gradient-to-r from-green-400 to-orange-400"
+  <span class="block h-1 w-56 md:w-56 w-40 mt-2 bg-gradient-to-r from-green-400 to-orange-400 animate-appear delay-2"
     style="margin-left: 100px; margin-left: max(20px, min(100px, 10%));"></span>
 
   <!-- Grid gambar dengan overlay gradient atas & bawah -->
@@ -746,5 +746,60 @@
     track.style.transform = `translateX(-${scrollAmount}px)`;
   }
 </script>
+
+{% block extra_css %}
+<style>
+  /* Animasi fadeInUp */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-appear {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  /* Delay untuk animasi berurutan */
+  .delay-1 {
+    animation-delay: 0.3s;
+  }
+
+  .delay-2 {
+    animation-delay: 0.6s;
+  }
+
+  .delay-3 {
+    animation-delay: 0.9s;
+  }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-appear');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    // Target semua elemen yang perlu dianimasi
+    document.querySelectorAll('.animate-on-scroll').forEach((element) => {
+      observer.observe(element);
+    });
+  });
+</script>
+{% endblock %}
+
 
 {% endblock %}

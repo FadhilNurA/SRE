@@ -20,7 +20,7 @@ SRE UI INTERNATIONAL BUSINESS CASE COMPETITION
                 top-[100px] pb-10  /* Mobile positioning with padding-bottom */
                 sm:top-1/2 sm:-translate-y-1/2 sm:pb-0  /* Desktop positioning */
                 ">
-      <div class="max-w-[1200px] mx-auto px-6">
+      <div class="max-w-[1200px] mx-auto px-6 container mx-auto px-4 py-12 md:py-16">
         <div class="flex flex-wrap items-center mb-4 fade-in-up fade-delay-1">
           <span class="text-[#299C00] text-3xl sm:text-4xl md:text-[42px] font-bold uppercase mr-2">SRE UI</span>
           <span class="bg-[#f37221] text-white text-[42px] font-bold uppercase px-4">INTERNATIONAL</span>
@@ -58,14 +58,14 @@ SRE UI INTERNATIONAL BUSINESS CASE COMPETITION
 
 <section class="w-full bg-white py-16">
   <div class="max-w-[1200px] mx-auto px-6">
-    <div class="mb-12 text-left">
-      <h2 class="text-4xl md:text-5xl font-bold text-green-600">Timeline Overview</h2>
-      <div class="h-2 mt-2 bg-gradient-to-r from-green-500 via-yellow-400 to-orange-500 rounded-full"></div>
+    <div class="mb-12 text-left animate-on-scroll">
+      <h2 class="text-4xl md:text-5xl font-bold text-green-600  animate-appear delay-1">Timeline Overview</h2>
+      <div class="h-2 mt-2 bg-gradient-to-r from-green-500 via-yellow-400 to-orange-500 rounded-full animate-appear delay-2"></div>
     </div>
 
     <div class="rounded-3xl overflow-hidden shadow-lg">
       <img 
-        src="{% static 'image/Group 1000004613.png' %}" 
+        src="{% static 'image/Group 1000004783 (1).png' %}" 
         alt="Timeline Visual"
         class="w-full h-auto object-contain"
       >
@@ -121,5 +121,58 @@ SRE UI INTERNATIONAL BUSINESS CASE COMPETITION
   
 </section>
 
+{% block extra_css %}
+<style>
+  /* Animasi fadeInUp */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-appear {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  /* Delay untuk animasi berurutan */
+  .delay-1 {
+    animation-delay: 0.3s;
+  }
+
+  .delay-2 {
+    animation-delay: 0.6s;
+  }
+
+  .delay-3 {
+    animation-delay: 0.9s;
+  }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-appear');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    // Target semua elemen yang perlu dianimasi
+    document.querySelectorAll('.animate-on-scroll').forEach((element) => {
+      observer.observe(element);
+    });
+  });
+</script>
+{% endblock %}
 
 {% endblock %}
