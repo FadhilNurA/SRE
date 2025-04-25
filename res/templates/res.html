@@ -398,12 +398,12 @@
     <p class="cta-subheading"></p>
 
     <div class="cta-options">
-      <a href="#" class="cta-option">BCC</a>
-      <a href="#" class="cta-option">PCC</a>
-      <a href="#" class="cta-option">REIC</a>
-      <a href="#" class="cta-option">Field Trip</a>
-      <a href="#" class="cta-option">Workshop</a>
-      <a href="#" class="cta-option">Pentahelix Talks</a>
+      <a href="{% url 'compe:bcc' %}" class="cta-option">BCC</a>
+      <a href="{% url 'compe:pcc' %}" class="cta-option">PCC</a>
+      <a href="{% url 'compe:reic' %}" class="cta-option">REIC</a>
+      <a href="{% url 'event:field-trip' %}" class="cta-option">Field Trip</a>
+      <a href="{% url 'event:workshop' %}" class="cta-option">Workshop</a>
+      <a href="{% url 'event:pentahelix-talks' %}" class="cta-option">Pentahelix Talks</a>
     </div>
   </div>
 </section>
