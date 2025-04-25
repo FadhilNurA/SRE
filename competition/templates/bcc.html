@@ -6,31 +6,31 @@ SRE UI INTERNATIONAL BUSINESS CASE COMPETITION
 {% endblock %}
 
 {% block content %}
-<div style="width: 100%; max-height: 100vh; background: #ffffff00; overflow: hidden;">
+<div class="w-full bg-transparent overflow-hidden">
   <!-- Wrapper Background dengan JPG + PNG -->
-  <div class="relative w-full h-full">
+  <div class="relative w-full min-h-[calc(100vh-80px)] sm:min-h-[700px] md:min-h-[800px] lg:min-h-[100vh]">
     <!-- Gambar Background JPG -->
-    <img src="{% static 'image/2.jpg' %}" alt="Background JPG" class="w-full h-full object-cover">
+    <img src="{% static 'image/2.jpg' %}" alt="Background JPG" class="absolute w-full h-full object-cover z-0">
 
-    <!-- PNG Menumpuk di atas JPG -->
-    <div class="absolute top-0 left-0 w-full z-10">
-      <img src="{% static 'image/Rectangle 5857.png' %}" class="w-full block" alt="PNG Atas">
-      <img src="{% static 'image/Rectangle 5855.png' %}" class="w-full -mt-1 block" alt="PNG Bawah">
-    </div>
+    <!-- Gradient dari atas ke tengah (transparan ke warna) dan bawah menjadi putih -->
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#f4f8fb] to-white z-10"></div>
 
     <!-- Judul & Deskripsi -->
-    <div class="absolute bottom-[20rem] left-0 w-full text-left text-white z-20">
+    <div class="absolute left-0 w-full text-left text-white z-20
+                top-[100px] pb-10  /* Mobile positioning with padding-bottom */
+                sm:top-1/2 sm:-translate-y-1/2 sm:pb-0  /* Desktop positioning */
+                ">
       <div class="max-w-[1200px] mx-auto px-6">
         <div class="flex flex-wrap items-center mb-4 fade-in-up fade-delay-1">
-          <span class="text-[#299C00] text-[42px] font-bold uppercase mr-4">SRE UI</span>
+          <span class="text-[#299C00] text-3xl sm:text-4xl md:text-[42px] font-bold uppercase mr-2">SRE UI</span>
           <span class="bg-[#f37221] text-white text-[42px] font-bold uppercase px-4">INTERNATIONAL</span>
         </div>
         <div class="fade-in-up fade-delay-2">
-          <span class="text-[#299C00] text-[42px] font-bold uppercase block">Business Case Competition</span>
+          <span class="text-[#299C00] text-3xl sm:text-4xl md:text-[42px] font-bold uppercase block">Business Case Competition</span>
         </div>
         
         <div class="fade-in-up fade-delay-3">
-          <p style="color: black; font-size: 18px; font-family: 'Open Sans', sans-serif; font-weight: 400; text-align: justify; line-height: 1.6; margin-top: 30px;">
+          <p class="text-black text-base sm:text-lg font-normal text-justify leading-relaxed mt-6">
             The SRE UI International Business Case Competition (IBCC) is
             <strong class="strong-gradient">a flagship competition under the annual Reenergize Summit, hosted by the Society of Renewable Energy Universitas Indonesia.</strong>
             This competition is specifically designed to delve deep into the dynamic and rapidly evolving world of the renewable energy industry, offering a stage for undergraduate students—both national and international—to sharpen their analytical, strategic, and problem-solving skills.
@@ -43,6 +43,18 @@ SRE UI INTERNATIONAL BUSINESS CASE COMPETITION
     </div>
   </div>
 </div>
+
+<style>
+  @media (max-width: 639px) {
+    /* Adjust this value based on your navbar height */
+    .top-120 {
+      top: 120px; /* Creates gap below navbar */
+      transform: none !important; /* Disables translate-y on mobile */
+    }
+  }
+</style>
+
+
 
 <section class="w-full bg-white py-16">
   <div class="max-w-[1200px] mx-auto px-6">
