@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Page Not Found - SRE UI
+{% endblock %}
+
+{% block content %}
+<div class="w-full min-h-screen bg-gradient-to-b from-green-50 to-white flex flex-col items-center justify-center py-12 px-4">
+  <div class="max-w-4xl mx-auto text-center">
+    <!-- Animasi/Ikon 404 -->
+    <div class="relative w-64 h-64 mx-auto mb-8">
+      <img src="{% static 'images/404-icon.svg' %}" alt="404 Error" class="w-full h-full object-contain">
+    </div>
+    
+    <!-- Teks Utama -->
+    <h1 class="text-6xl sm:text-8xl font-bold text-green-600 mb-4">404</h1>
+    <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-6">Page Not Found</h2>
+    
+    <!-- Pesan Deskriptif -->
+    <p class="text-lg sm:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+      Oops! The page you're looking for has vanished into the renewable energy void.
+      <br>
+      Let's get you back to the <span class="text-green-600 font-medium">sustainable path</span>.
+    </p>
+    
+    <!-- Tombol Kembali -->
+    <div class="flex flex-col sm:flex-row justify-center gap-4">
+      <a href="/" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full shadow-md transition duration-300 transform hover:scale-105">
+        Back to Home
+      </a>
+      <a href="{% url 'contact' %}" class="bg-white hover:bg-gray-100 text-green-600 font-bold py-3 px-8 rounded-full border-2 border-green-600 shadow-sm transition duration-300">
+        Report Issue
+      </a>
+    </div>
+    
+    <!-- Fitur Tambahan -->
+    <div class="mt-12 pt-6 border-t border-gray-200">
+      <p class="text-gray-500 mb-4">Or try searching:</p>
+      <form class="max-w-md mx-auto">
+        <div class="relative">
+          <input type="text" placeholder="Search..." class="w-full py-3 px-4 pr-12 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent">
+          <button type="submit" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-green-600 hover:text-green-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Animasi untuk ikon 404 */
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+  
+  .relative img {
+    animation: float 3s ease-in-out infinite;
+  }
+</style>
+{% endblock %}
