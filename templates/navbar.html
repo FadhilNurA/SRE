@@ -1,6 +1,6 @@
 {% load static %}
 
-<nav id="main-nav" class="bg-[#105D48] shadow-lg fixed top-0 left-0 w-full z-50">
+<nav id="main-nav" class="bg-[#105D48] shadow-lg fixed top-0 left-0 w-full z-50 transition-transform duration-300">
     <div class="max-w-7xl mx-auto px-6">
         <div class="flex items-center justify-between h-24">
 
@@ -9,7 +9,7 @@
                 <img src="{% static 'image/logo.png' %}" alt="Logo" class="h-7 object-contain">
             </a>
 
-            <!-- Navigation Links -->
+            <!-- Desktop Navigation Links -->
             <div class="hidden md:flex ml-auto space-x-8 font-semibold text-lg text-white">
                 <a href="{% url 'res:home' %}"
                     class="hover:text-gray-300 relative {% if request.resolver_match.url_name == 'res_home' %}active-nav-link{% endif %}">
@@ -40,6 +40,49 @@
                     Pentahelix Talks
                 </a>
             </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Dropdown -->
+    <div id="mobile-menu" class="md:hidden bg-[#105D48] overflow-hidden transition-all duration-300 max-h-0">
+        <div class="px-6 py-4 space-y-4 font-semibold text-white">
+            <a href="{% url 'res:home' %}"
+                class="block py-2 hover:text-gray-300 {% if request.resolver_match.url_name == 'res_home' %}text-yellow-300{% endif %}">
+                Home
+            </a>
+            <a href="{% url 'compe:bcc' %}"
+                class="block py-2 hover:text-gray-300 {% if request.resolver_match.url_name == 'bcc' %}text-yellow-300{% endif %}">
+                BCC
+            </a>
+            <a href="{% url 'compe:pcc' %}"
+                class="block py-2 hover:text-gray-300 {% if request.resolver_match.url_name == 'pcc' %}text-yellow-300{% endif %}">
+                PCC
+            </a>
+            <a href="{% url 'compe:reic' %}"
+                class="block py-2 hover:text-gray-300 {% if request.resolver_match.url_name == 'reic' %}text-yellow-300{% endif %}">
+                REIC
+            </a>
+            <a href="{% url 'event:field-trip' %}"
+                class="block py-2 hover:text-gray-300 {% if request.resolver_match.url_name == 'field-trip' %}text-yellow-300{% endif %}">
+                Field Trip
+            </a>
+            <a href="{% url 'event:workshop' %}"
+                class="block py-2 hover:text-gray-300 {% if request.resolver_match.url_name == 'workshop' %}text-yellow-300{% endif %}">
+                Workshop
+            </a>
+            <a href="{% url 'event:pentahelix-talks' %}"
+                class="block py-2 hover:text-gray-300 {% if request.resolver_match.url_name == 'pentahelix-talks' %}text-yellow-300{% endif %}">
+                Pentahelix Talks
+            </a>
         </div>
     </div>
 </nav>
@@ -69,19 +112,6 @@
         }
     }
 
-        .nav-hidden {
-        transform: translateY(-100%);
-        transition: transform 0.3s ease-in-out;
-    }
-
-    .nav-visible {
-        transform: translateY(0);
-        transition: transform 0.3s ease-in-out;
-    }
-
-</style>
-
-<style>
     .nav-hidden {
         transform: translateY(-100%);
         transition: transform 0.3s ease-in-out;
@@ -91,14 +121,32 @@
         transform: translateY(0);
         transition: transform 0.3s ease-in-out;
     }
+    
+    /* Animasi untuk mobile menu */
+    .mobile-menu-open {
+        max-height: 500px; /* Tinggi maksimum saat menu terbuka */
+    }
 </style>
-
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const nav = document.getElementById('main-nav');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
         let lastScroll = 0;
+        
+        // Toggle mobile menu
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('mobile-menu-open');
+            
+            // Ubah ikon hamburger menjadi X saat menu terbuka
+            const isOpen = mobileMenu.classList.contains('mobile-menu-open');
+            mobileMenuButton.innerHTML = isOpen 
+                ? '<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>'
+                : '<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>';
+        });
 
+        // Hide navbar on scroll down, show on scroll up
         window.addEventListener('scroll', () => {
             const current = window.pageYOffset;
             if (current <= 0) {
@@ -112,6 +160,23 @@
                 nav.classList.add('nav-visible');
             }
             lastScroll = current;
+        });
+        
+        // Tutup mobile menu saat ukuran layar berubah ke desktop
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768) { // 768px adalah breakpoint md di Tailwind
+                mobileMenu.classList.remove('mobile-menu-open');
+                mobileMenuButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>';
+            }
+        });
+        
+        // Tutup mobile menu saat mengklik link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('mobile-menu-open');
+                mobileMenuButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>';
+            });
         });
     });
 </script>
