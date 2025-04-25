@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}SRE UI INTERNATIONAL BUSINESS CASE COMPETITION{% endblock %}
+{% block title %}
+SRE UI INTERNATIONAL BUSINESS CASE COMPETITION
+{% endblock %}
 
 {% block content %}
 <div style="width: 100%; max-height: 100vh; background: #ffffff00; overflow: hidden;">
-
   <!-- Wrapper Background dengan JPG + PNG -->
   <div class="relative w-full h-full">
     <!-- Gambar Background JPG -->
@@ -17,41 +18,91 @@
       <img src="{% static 'image/Rectangle 5855.png' %}" class="w-full -mt-1 block" alt="PNG Bawah">
     </div>
 
+    <!-- Judul & Deskripsi -->
     <div class="absolute bottom-[20rem] left-0 w-full text-left text-white z-20">
       <div class="max-w-[1200px] mx-auto px-6">
-        <!-- Judul -->
-        <div class="flex flex-wrap items-center mb-4">
+        <div class="flex flex-wrap items-center mb-4 fade-in-up fade-delay-1">
           <span class="text-[#299C00] text-[42px] font-bold uppercase mr-4">SRE UI</span>
           <span class="bg-[#f37221] text-white text-[42px] font-bold uppercase px-4">INTERNATIONAL</span>
         </div>
-        <div>
+        <div class="fade-in-up fade-delay-2">
           <span class="text-[#299C00] text-[42px] font-bold uppercase block">Business Case Competition</span>
         </div>
-    
-        <!-- Paragraf panjang -->
-        <p style="color: black; font-size: 18px; font-family: 'Open Sans', sans-serif; font-weight: 400; text-align: justify; line-height: 1.6; margin-top: 30px;">
-          The SRE UI International Business Case Competition (IBCC) is
-          <strong class="strong-gradient"> a flagship competition under the annual Reenergize Summit, hosted by the Society of Renewable Energy Universitas Indonesia.</strong>
-          This competition is specifically designed to delve deep into the dynamic and rapidly evolving world of the renewable energy industry, offering a stage for undergraduate students—both national and international—to sharpen their analytical, strategic, and problem-solving skills.
-          As the renewable energy sector becomes a central focus of global sustainability efforts,
-          <strong class="strong-gradient">IBCC aims to bridge the gap between academic understanding and real-world business challenges.</strong>
-          Participants are tasked with navigating complex, real-world scenarios through in-depth case studies that reflect the multifaceted issues faced by today’s energy companies, policymakers, and innovators.
-        </p>
+        
+        <div class="fade-in-up fade-delay-3">
+          <p style="color: black; font-size: 18px; font-family: 'Open Sans', sans-serif; font-weight: 400; text-align: justify; line-height: 1.6; margin-top: 30px;">
+            The SRE UI International Business Case Competition (IBCC) is
+            <strong class="strong-gradient">a flagship competition under the annual Reenergize Summit, hosted by the Society of Renewable Energy Universitas Indonesia.</strong>
+            This competition is specifically designed to delve deep into the dynamic and rapidly evolving world of the renewable energy industry, offering a stage for undergraduate students—both national and international—to sharpen their analytical, strategic, and problem-solving skills.
+            As the renewable energy sector becomes a central focus of global sustainability efforts,
+            <strong class="strong-gradient">IBCC aims to bridge the gap between academic understanding and real-world business challenges.</strong>
+            Participants are tasked with navigating complex, real-world scenarios through in-depth case studies that reflect the multifaceted issues faced by today's energy companies, policymakers, and innovators.
+          </p>
+        </div>
       </div>
     </div>
-    
-    
   </div>
 </div>
 
 <section class="w-full bg-white py-16">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <div class="mb-12 text-left">
+      <h2 class="text-5xl font-bold text-green-600">Timeline Overview</h2>
+      <div class="h-2 mt-2 bg-gradient-to-r from-green-500 via-yellow-400 to-orange-500 rounded-full"></div>
+    </div>
+
+    <div class="bg-white rounded-3xl shadow-lg p-12 relative">
+    <!-- Top & Bottom Events -->
+    <div class="flex flex-col">
+      <!-- Top Row (events 1 - 3) -->
+      <div class="flex justify-between mb-12">
+        <div class="w-1/6 text-center">
+          <h3 class="text-xl font-bold text-green-700">Open Registration</h3>
+          <p class="text-lg text-green-800">24 April - 23 May 2025</p>
+        </div>
+        <div class="w-1/6 text-center">
+          <h3 class="text-xl font-bold text-green-700">Case Release</h3>
+          <p class="text-lg text-green-800">4 May 2025</p>
+        </div>
+        <div class="w-1/6 text-center">
+          <h3 class="text-xl font-bold text-green-700">Full-Paper<br>Submission Deadlines</h3>
+          <p class="text-lg text-green-800">23 May 2025</p>
+        </div>
+        <div class="w-1/6 text-center">
+          <h3 class="text-xl font-bold text-green-700">Finalist Announcement</h3>
+          <p class="text-lg text-green-800">2 June 2025</p>
+        </div>
+        <div class="w-1/6 text-center">
+          <h3 class="text-xl font-bold text-green-700">Mentoring Session</h3>
+          <p class="text-lg text-green-800">10 - 12 June 2025</p>
+        </div>
+        <div class="w-1/6 text-center">
+          <h3 class="text-xl font-bold text-green-700">Final Stage</h3>
+          <p class="text-lg text-green-800">21 June 2025</p>
+        </div>
+      </div>
+
+      <!-- Timeline Line with Diamonds -->
+      <div class="relative h-16 mb-8">
+        <div class="absolute w-full border-t-2 border-dashed border-green-500 top-1/2"></div>
+        <div class="absolute w-full flex justify-between items-center top-1/2 -translate-y-1/2">
+          {% for _ in "123456" %}
+          <div class="w-8 h-8 bg-green-600 rotate-45"></div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Contact & CTA Section -->
+<section class="w-full bg-white py-16">
   <div class="max-w-xl mx-auto text-center px-6">
-    <!-- Judul -->
     <h2 class="text-green-700 text-2xl md:text-3xl font-bold mb-6">
       For further information
     </h2>
 
-    <!-- Kontak -->
     <div class="text-green-900 text-base md:text-lg space-y-2 mb-10">
       <p>Adit (089526741343)</p>
       <p>Nadhif (085774245582)</p>
@@ -59,7 +110,6 @@
       <p>@reenergizesummit / @sreui.chapter</p>
     </div>
 
-    <!-- Tombol -->
     <div class="flex flex-col md:flex-row items-center justify-center gap-4">
       <a href="#" class="bg-lime-400 hover:bg-lime-500 text-green-900 font-bold py-3 px-6 rounded-full shadow-md transition">
         Register Now!
@@ -70,6 +120,7 @@
     </div>
   </div>
 </section>
+
 
 
 {% endblock %}

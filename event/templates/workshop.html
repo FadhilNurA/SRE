@@ -1,60 +1,116 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Policy Case Competition - RES 2025{% endblock %}
+{% block title %}
+SRE UI WORKSHOP
+{% endblock %}
 
 {% block content %}
-<section class="bg-[#F4F4F4] text-[#1F393B] px-6 py-16 font-raleway">
-    <div class="max-w-4xl mx-auto">
-        <h1 class="text-5xl font-bold mb-6 text-center font-josefin">Policy Case Competition (PCC)</h1>
-        <p class="text-lg mb-8 text-justify">
-            The <strong>Policy Case Competition (PCC)</strong> is a national-level policy design challenge, inviting
-            students to craft innovative and implementable policy recommendations addressing pressing issues in
-            renewable energy and sustainability.
-        </p>
+<div style="width: 100%; max-height: 100vh; background: #ffffff00; overflow: hidden;">
+  <!-- Wrapper Background dengan JPG + PNG -->
+  <div class="relative w-full h-full">
+    <!-- Gambar Background JPG -->
+    <img src="{% static 'image/2.jpg' %}" alt="Background JPG" class="w-full h-full object-cover">
 
-        <h2 class="text-2xl font-semibold mb-4 mt-10">About the Competition</h2>
-        <p class="text-lg mb-8 text-justify">
-            RES 2025’s PCC is designed to empower undergraduate and diploma students across Indonesia to tackle
-            real-world policy problems through research-based solutions. This competition challenges participants to
-            formulate strategic, feasible, and sustainable policy proposals aimed at boosting Indonesia’s clean energy
-            agenda.
-        </p>
-
-        <h2 class="text-2xl font-semibold mb-4 mt-10">Theme of PCC 2025</h2>
-        <h3 class="text-xl font-semibold mb-4 font-josefin">“Shaping Policy for a Green Tomorrow: Regulatory Solutions
-            for Energy Transition”</h3>
-        <p class="text-lg mb-8 text-justify">
-            Under the RES 2025 umbrella, this competition encourages future policy makers to present ideas that
-            harmonize regulatory frameworks, public awareness, and government-private collaboration to facilitate an
-            inclusive and sustainable energy transition in Indonesia.
-        </p>
-
-        <div class="bg-white shadow-md rounded-xl p-6 text-center mt-12">
-            <h3 class="text-xl font-semibold mb-2">🎁 Total Prize Pool</h3>
-            <p class="text-3xl font-bold text-green-700">IDR 10,250,000</p>
-        </div>
-
-        <div class="text-center my-10">
-            <a href="#"
-                class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 text-xl">Register
-                Now</a>
-        </div>
-
-        <h2 class="text-2xl font-semibold mt-12 mb-4 text-center">Be Part of the Change</h2>
-        <p class="text-lg text-center mb-6">PCC 2025 is more than a competition—it’s a call to action for youth to
-            reimagine Indonesia’s energy policy. Submit your proposal and take the lead in shaping impactful
-            regulations!</p>
-
-        <div class="flex justify-center gap-6 mt-10">
-            <a href="#"
-                class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded transition duration-300">Download
-                Guidebook</a>
-            <a href="#"
-                class="bg-gray-800 hover:bg-gray-900 text-white font-semibold py-2 px-6 rounded transition duration-300">Contact
-                Person</a>
-        </div>
-
+    <!-- PNG Menumpuk di atas JPG -->
+    <div class="absolute top-0 left-0 w-full z-10">
+      <img src="{% static 'image/Rectangle 5857.png' %}" class="w-full block" alt="PNG Atas">
+      <img src="{% static 'image/Rectangle 5855.png' %}" class="w-full -mt-1 block" alt="PNG Bawah">
     </div>
+
+   <!-- Judul & Deskripsi -->
+   <div class="absolute bottom-[20rem] left-0 w-full text-left text-white z-20">
+    <div class="max-w-[1200px] mx-auto px-6">
+      <div class="flex flex-wrap items-center mb-4 fade-in-up fade-delay-1">
+        <span class="bg-[#f37221] text-white text-[42px] font-bold uppercase px-4">Workshop</span>
+      </div>
+      <div class="fade-in-up fade-delay-2">
+        <span class="text-[#299C00] text-[42px] font-bold uppercase block">
+          Reenergize Summit SRE UI 2025</span>
+      </div>
+      
+      <div class="fade-in-up fade-delay-3">
+        <p style="color: black; font-size: 18px; font-family: 'Open Sans', sans-serif; font-weight: 400; text-align: justify; line-height: 1.6; margin-top: 30px;">
+          <strong class="strong-gradient">Young people's attention to environmental issues, especially the climate crisis, has been increasing.</strong> However, <strong class="strong-gradient">many of them still perceive the climate crisis as merely a natural phenomenon.</strong> Furthermore, <strong class="strong-gradient">their understanding of this issue remains limited,</strong> and <strong class="strong-gradient">they have not been sufficiently involved in the process of formulating climate policies at the regional level, particularly regarding energy transition issues.</strong>  
+      </p>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+<!-- Objectives Section -->
+<section class="w-full bg-white py-16">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <div class="mb-12 text-left">
+      <h2 class="text-5xl font-bold text-green-600">Objectives</h2>
+      <div class="h-2 mt-2 bg-gradient-to-r from-green-500 via-yellow-400 to-orange-500 rounded-full"></div>
+    </div>
+
+    <div class="bg-white rounded-3xl shadow-lg p-12 relative">
+      <ol class="list-decimal pl-6 space-y-4 text-lg text-gray-800">
+        <li>Providing participants with new insights and experiences related to the renewable energy sector and its applications in the industrial world.</li>
+        <li>Gaining new knowledge about the production process flow and the management of renewable energy.</li>
+        <li>Understanding industry profiles and the key preparations needed to become an ideal worker in the green jobs sector.</li>
+      </ol>
+    </div>
+  </div>
 </section>
+<!-- Workshop Concept Section -->
+<section class="w-full bg-white py-16">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <div class="mb-12 text-left">
+      <h2 class="text-5xl font-bold text-green-600">Energy Policy Workshop Concept</h2>
+      <div class="h-2 mt-2 bg-gradient-to-r from-green-500 via-yellow-400 to-orange-500 rounded-full"></div>
+    </div>
+
+    <div class="bg-white rounded-3xl shadow-lg p-12 relative">
+      <!-- Speaker Presentations -->
+      <div class="mb-12">
+        <h3 class="text-3xl font-bold text-green-700 mb-6">Speaker Presentations</h3>
+        <ul class="space-y-4 text-lg text-gray-800 pl-6 list-disc">
+          <li>
+            <strong class="strong-gradient">Government (ESDM Agency):</strong> 
+            Energy transition plans, challenges, and opportunities.
+          </li>
+          <li>
+            <strong class="strong-gradient">Academics/Think Tanks:</strong> 
+            Methods for creating effective, data-driven policy briefs.
+          </li>
+        </ul>
+      </div>
+
+      <!-- Group Discussion -->
+      <div class="mb-12">
+        <h3 class="text-3xl font-bold text-green-700 mb-6">Group Discussion</h3>
+        <p class="text-lg text-gray-800">
+          Participants will be divided into several groups to <strong class="strong-gradient">complete workshop exercises</strong> related to <strong class="strong-gradient">stakeholder mapping</strong>.
+        </p>
+      </div>
+
+      <!-- Interactive Discussion -->
+      <div class="mb-12">
+        <h3 class="text-3xl font-bold text-green-700 mb-6">Interactive Discussion</h3>
+        <p class="text-lg text-gray-800">
+          Using the <strong class="strong-gradient">World Café Method</strong>, where speakers rotate between groups to facilitate <strong class="strong-gradient">meaningful discussions</strong>.
+        </p>
+      </div>
+
+      <!-- Role Playing -->
+      <div>
+        <h3 class="text-3xl font-bold text-green-700 mb-6">Role Playing</h3>
+        <p class="text-lg text-gray-800">
+          Groups will <strong class="strong-gradient">role-play as policy actors</strong> (proponents/opponents) and conduct <strong class="strong-gradient">case study-based negotiations</strong>.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
 {% endblock %}

@@ -37,3 +37,32 @@
 </body>
 
 </html>
+<style>
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .fade-in-up {
+    animation: fadeInUp 1s ease-out forwards;
+    opacity: 0; /* awalnya sembunyi */
+  }
+
+  .fade-delay-1 {
+    animation-delay: 0.3s;
+  }
+
+  .fade-delay-2 {
+    animation-delay: 0.6s;
+  }
+
+  .fade-delay-3 {
+    animation-delay: 0.9s;
+  }
+</style>

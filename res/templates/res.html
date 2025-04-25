@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Page Title{% endblock %}
+{% block title %}SRE HOME PAGE{% endblock %}
 
 {% block content %}
 <!-- Ganti #D9D9D9 dengan warna yang sesuai atau hapus jika tidak perlu -->
@@ -335,7 +335,9 @@
     <img src="{% static 'image/4.png' %}" class="centered-overlay" alt="Overlay">
 
     <!-- Animated Element (Image 5) -->
+    <div class="cta-container">
     <img src="{% static 'image/5.png' %}" class="animated-overlay" alt="Animated Overlay">
+    </div>
   </div>
 
   <!-- White Box dengan Konten Panjang -->
@@ -387,24 +389,171 @@
   </div>
 </section>
 
-  <section class="cta-section -mt-8"">
-    <div class="cta-container">
-      <h2 class="cta-heading">
-        Are you ready to participate<br>
-        in <span class="gradient-text">ReEnergize Summit 2025</span>?
-      </h2>
-      <p class="cta-subheading">We provide more.</p>
-  
-      <div class="cta-options">
-        <a href="#" class="cta-option">BCC</a>
-        <a href="#" class="cta-option">PCC</a>
-        <a href="#" class="cta-option">REIC</a>
-        <a href="#" class="cta-option">Field Trip</a>
-        <a href="#" class="cta-option">Workshop</a>
-        <a href="#" class="cta-option">Pentahelix Talks</a>
-      </div>
+<section class="cta-section -mt-8">
+  <div class="cta-container">
+    <h2 class="cta-heading">
+      Are you ready to participate<br>
+      in <span class="gradient-text">ReEnergize Summit 2025</span>?
+    </h2>
+    <p class="cta-subheading"></p>
+
+    <div class="cta-options">
+      <a href="#" class="cta-option">BCC</a>
+      <a href="#" class="cta-option">PCC</a>
+      <a href="#" class="cta-option">REIC</a>
+      <a href="#" class="cta-option">Field Trip</a>
+      <a href="#" class="cta-option">Workshop</a>
+      <a href="#" class="cta-option">Pentahelix Talks</a>
     </div>
-  </section>
+  </div>
+</section>
+
+<style>
+  .cta-section {
+    /* Your existing styles */
+    position: relative;
+  }
+  
+  .cta-heading {
+    /* Your existing styles */
+    opacity: 1; /* Ensure it's visible by default */
+  }
+  
+  .cta-subheading {
+    /* Your existing styles */
+    min-height: 1.5rem; /* Prevent layout shift during animation */
+  }
+  
+  
+  /* Animation classes */
+  .typing-cursor:after {
+    content: '|';
+    animation: blink 1s step-end infinite;
+  }
+  
+  @keyframes blink {
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
+  }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const ctaSection = document.querySelector('.cta-section');
+  const heading = document.querySelector('.cta-heading');
+  const subheading = document.querySelector('.cta-subheading');
+  
+  // Save original texts
+  const headingText = heading.innerHTML;
+  const subheadingText = subheading.textContent;
+  
+  // Clear the texts initially
+  heading.innerHTML = '';
+  subheading.textContent = '';
+  heading.classList.add('typing-cursor');
+  
+  // Only animate when element is in viewport
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        startAnimations();
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {threshold: 0.3});
+
+  observer.observe(ctaSection);
+
+  function startAnimations() {
+    // Animate main heading
+    typeWriter(heading, headingText, 30, () => {
+      heading.classList.remove('typing-cursor');
+      // Start subheading animation after heading completes
+      animateSubheading();
+    });
+  }
+
+  function typeWriter(element, text, speed, callback) {
+    let i = 0;
+    let tempContent = '';
+    let insideTag = false;
+    
+    function type() {
+      if (i < text.length) {
+        // Handle HTML tags
+        if (text[i] === '<') {
+          insideTag = true;
+        }
+        
+        tempContent += text[i];
+        
+        if (text[i] === '>') {
+          insideTag = false;
+          element.innerHTML = tempContent;
+        } else if (!insideTag) {
+          element.innerHTML = tempContent;
+        }
+        
+        i++;
+        setTimeout(type, insideTag ? 10 : speed);
+      } else if (callback) {
+        callback();
+      }
+    }
+    
+    type();
+  }
+
+  function animateSubheading() {
+    const messages = [
+      "We REducate.",
+      "We RElevate.",
+      "We REconnect."
+    ];
+    let currentMessage = 0;
+    let deleting = false;
+    let text = '';
+    let i = 0;
+    
+    subheading.classList.add('typing-cursor');
+    
+    function animate() {
+      const currentTarget = deleting ? '' : messages[currentMessage];
+      
+      if (!deleting && text.length < currentTarget.length) {
+        // Typing
+        text = currentTarget.substring(0, i+1);
+        subheading.textContent = text;
+        i++;
+        setTimeout(animate, 100);
+      } else if (!deleting && text.length === currentTarget.length) {
+        // Pause before deleting
+        deleting = true;
+        setTimeout(animate, 1500);
+      } else if (deleting && text.length > 0) {
+        // Deleting
+        text = text.substring(0, text.length-1);
+        subheading.textContent = text;
+        setTimeout(animate, 50);
+      } else {
+        // Switch to next message
+        deleting = false;
+        currentMessage = (currentMessage + 1) % messages.length;
+        i = 0;
+        setTimeout(animate, 500);
+      }
+    }
+    
+    // Start animation with the original text first
+    typeWriter(subheading, subheadingText, 30, () => {
+      setTimeout(() => {
+        subheading.textContent = '';
+        animate();
+      }, 800);
+    });
+  }
+});
+</script>
 
 <script>
   let scrollIndex = 0;
@@ -426,5 +575,6 @@
     track.style.transform = `translateX(-${scrollAmount}px)`;
   }
 </script>
+
 
 {% endblock %}
