@@ -20,14 +20,15 @@ SRE UI FIELD TRIP
                 top-[100px] pb-10  /* Mobile positioning with padding-bottom */
                 sm:top-1/2 sm:-translate-y-1/2 sm:pb-0  /* Desktop positioning */
                 ">
-      <div class="max-w-[1200px] mx-auto px-6">
+      <div class="max-w-[1200px] mx-auto px-6 container mx-auto px-4 py-12 md:py-16">
         <div class="flex flex-wrap items-center mb-4 fade-in-up fade-delay-1">
-          <span class="text-[#299C00] text-[42px] font-bold uppercase mr-4">FIELD</span>
-          <span class="bg-[#f37221] text-white text-[42px] font-bold uppercase px-4">TRIP</span>
+          <span class="text-[#299C00] text-[32px] md:text-[42px] font-bold uppercase mr-4">FIELD</span>
+          <span class="bg-[#f37221] text-white text-[32px] md:text-[42px] font-bold uppercase px-4">TRIP</span>
         </div>
         
         <div class="fade-in-up fade-delay-3">
-          <p style="color: black; font-size: 18px; font-family: 'Open Sans', sans-serif; font-weight: 400; text-align: justify; line-height: 1.6; margin-top: 30px;">
+            <p style="color: black; font-family: 'Open Sans', sans-serif; font-weight: 400; text-align: justify; line-height: 1.6; margin-top: 30px;"
+                class="text-[16px] sm:text-[18px]">
             <strong class="strong-gradient">What is Field Trip?</strong><br>
             The Field Trip is an event before the Grand Seminar, where <strong class="strong-gradient"> registrants will visit a renewable energy office/power plant.</strong> During the visit, participants will <strong class="strong-gradient">tour the company's facilities, interact with industry professionals, and learn about innovative renewable energy sources.</strong> Experts will share insights on clean energy production, environmental impact, and career opportunities in the field. The event will <strong class="strong-gradient">prioritize finalists of the competitions and SRE UI members.</strong>
                 </p>
@@ -40,9 +41,9 @@ SRE UI FIELD TRIP
 <!-- Objectives Section -->
 <section class="w-full bg-white py-16">
   <div class="max-w-[1200px] mx-auto px-6">
-    <div class="mb-12 text-right">
-      <h2 class="text-5xl font-bold text-green-600">Objectives</h2>
-      <div class="h-2 mt-2 bg-gradient-to-r from-green-500 via-yellow-400 to-orange-500 rounded-full"></div>
+    <div class="mb-12 text-right animate-on-scroll">
+      <h2 class="text-4xl sm:text-5xl font-bold text-green-600 animate-appear delay-1">Objectives</h2>
+      <div class="h-2 mt-2 bg-gradient-to-r from-green-500 via-yellow-400 to-orange-500 rounded-full animate-appear delay-2"></div>
     </div>
 
     <div class="bg-white rounded-3xl shadow-lg p-12 relative">
@@ -64,9 +65,9 @@ SRE UI FIELD TRIP
 <!-- Expected Outcomes Section -->
 <section class="w-full bg-white py-16">
   <div class="max-w-[1200px] mx-auto px-6">
-    <div class="mb-12 text-left">
-      <h2 class="text-5xl font-bold text-green-600">Expected Outcomes</h2>
-      <div class="h-2 mt-2 bg-gradient-to-r from-green-500 via-yellow-400 to-orange-500 rounded-full"></div>
+    <div class="mb-12 text-left animate-on-scroll">
+      <h2 class="text-4xl sm:text-5xl font-bold text-green-600 animate-appear delay-1">Expected Outcomes</h2>
+      <div class="h-2 mt-2 bg-gradient-to-r from-green-500 via-yellow-400 to-orange-500 rounded-full animate-appear delay-2"></div>
     </div>
 
     <div class="bg-white rounded-3xl shadow-lg p-12 relative">
@@ -88,9 +89,9 @@ SRE UI FIELD TRIP
 <!-- Date and Time Section -->
 <section class="w-full bg-white py-16">
   <div class="max-w-[1200px] mx-auto px-6">
-    <div class="mb-12 text-right">
-      <h2 class="text-5xl font-bold text-green-600">Date and Time</h2>
-      <div class="h-2 mt-2 bg-gradient-to-r from-green-500 via-yellow-400 to-orange-500 rounded-full"></div>
+    <div class="mb-12 text-right animate-on-scroll">
+      <h2 class="text-4xl sm:text-5xl font-bold text-green-600 animate-appear delay-1">Date and Time</h2>
+      <div class="h-2 mt-2 bg-gradient-to-r from-green-500 via-yellow-400 to-orange-500 rounded-full animate-appear delay-2"></div>
     </div>
 
     <div class="bg-white rounded-3xl shadow-lg p-12 relative">
@@ -125,5 +126,57 @@ SRE UI FIELD TRIP
     <div class="absolute inset-0 bg-gradient-to-b from-white/100 via-white/50 to-transparent"></div>
   </div>
   
+{% block extra_css %}
+<style>
+    /* Animasi fadeInUp */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
 
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-appear {
+        animation: fadeInUp 0.8s ease-out forwards;
+        opacity: 0;
+    }
+
+    /* Delay untuk animasi berurutan */
+    .delay-1 {
+        animation-delay: 0.3s;
+    }
+
+    .delay-2 {
+        animation-delay: 0.6s;
+    }
+
+    .delay-3 {
+        animation-delay: 0.9s;
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-appear');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        // Target semua elemen yang perlu dianimasi
+        document.querySelectorAll('.animate-on-scroll').forEach((element) => {
+            observer.observe(element);
+        });
+    });
+</script>
+{% endblock %}
 {% endblock %}
